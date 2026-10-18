@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8bitbrains - A Creative Agency</title>
+    <meta name="description" content="We build apps & websites that make sense">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Homemade+Apple&family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f5f5dc;
+            color: #304F67;
+            min-height: 100vh;
+            display: flex;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 320px;
+            min-width: 320px;
+            height: 100vh;
+            padding: 24px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(270deg, rgba(245, 245, 220, 0) 0%, #f5f5dc 60%);
+        }
+
+        .sidebar-top {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(48, 79, 104, 0.12);
+            object-fit: cover;
+        }
+
+        .logo span {
+            font-size: 23px;
+            font-weight: 800;
+            color: #304F67;
+            letter-spacing: -0.03em;
+        }
+
+        .menu-dots {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .menu-dots:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-dots span {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-dots span i {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #304F67;
+            display: block;
+        }
+
+        .divider {
+            height: 1px;
+            background: #D6DCE1;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #456176;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .nav-link.active {
+            background: #FAF8F2;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16), inset 0px 7px 32px rgb(255, 255, 255);
+        }
+
+        .nav-link .nav-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
+            display: inline-flex;
+        }
+
+        .nav-link .nav-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .nav-link .arrow-icon {
+            opacity: 0.2;
+        }
+
+        .nav-link-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-badge {
+            background: #E6E0CE;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #456176;
+        }
+
+        .nav-section-title {
+            text-transform: uppercase;
+            color: rgba(48, 79, 104, 0.4);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 0 20px;
+            margin-top: 10px;
+        }
+
+        .nav-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 0;
+            text-decoration: none;
+            color: #456176;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .nav-action:hover {
+            opacity: 0.7;
+        }
+
+        .nav-actions {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sidebar-brands {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .brands-title {
+            text-transform: uppercase;
+            color: rgba(48, 79, 104, 0.4);
+            font-weight: 700;
+            font-size: 13px;
+            padding-left: 20px;
+        }
+
+        .brands-title b {
+            color: #456176;
+            font-weight: 700;
+        }
+
+        .brands-grid {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 8px;
+            gap: 4px;
+        }
+
+        .brand-tag {
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #456176;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .brand-tag:hover {
+            opacity: 0.6;
+        }
+
+        /* ===== MAIN ===== */
+        .main-content {
+            flex: 1;
+            margin-left: 320px;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-card {
+            width: 100%;
+            max-width: 1100px;
+            background: #FAF8F2;
+            border-radius: 29px;
+            box-shadow: 0px 1.67px 4.18px rgba(183, 181, 203, 0.25), 0px 8.37px 8.37px rgba(183, 181, 203, 0.2), 0px 17.57px 10.88px rgba(183, 181, 203, 0.12), 0px 31.8px 12.55px rgba(183, 181, 203, 0.05), 0px 50.21px 14.23px rgba(183, 181, 203, 0.01);
+            padding: 60px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content-inner {
+            max-width: 660px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        /* ===== MODERN HERO (SS1 DESIGN) ===== */
+        .hero-container {
+            width: 100%;
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7A93A6;
+            margin-bottom: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hero-tag b {
+            color: #233F53;
+            font-weight: 800;
+        }
+
+        .hero-modern-title {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+            color: #233F53;
+            margin-bottom: 28px;
+            text-align: left;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .hero-logo-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: #FFD43F;
+            box-shadow: 0 4px 14px rgba(255, 193, 7, 0.35);
+            vertical-align: -8px;
+            margin: 0 6px 0 4px;
+            overflow: hidden;
+            transition: transform 0.25s ease;
+        }
+
+        .hero-logo-badge:hover {
+            transform: scale(1.08) rotate(-3deg);
+        }
+
+        .hero-logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+        }
+
+        .hero-modern-title .muted-text {
+            color: #8C9EA8;
+            font-weight: 600;
+        }
+
+        .hero-modern-title .hero-brand-title {
+            color: #233F53;
+            font-weight: 700;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+
+        .hero-pill-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: 9999px;
+            background: #ffffff;
+            color: #233F53;
+            font-size: 14.5px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(35, 55, 75, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.22s ease;
+            cursor: pointer;
+        }
+
+        .hero-pill-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(35, 55, 75, 0.1);
+            color: #1a3142;
+        }
+
+        /* ===== SHOWCASE VIDEO PLAYER CARD ===== */
+        .hero-showcase-card {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 12px 12px 14px 12px;
+            box-shadow: 0 16px 44px rgba(35, 55, 75, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .hero-video-viewport {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #6EC5FF 0%, #9BD8FF 35%, #D4F0FF 65%, #EBF8FF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .hero-showcase-hill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            object-position: center top;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-watermark-wrap {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            pointer-events: none;
+            z-index: 2;
+            width: 90%;
+        }
+
+        .hero-watermark-logo {
+            width: 68px;
+            height: 68px;
+            border-radius: 16px;
+            opacity: 0.85;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            object-fit: cover;
+        }
+
+        .hero-watermark-text {
+            font-size: 68px;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: rgba(255, 255, 255, 0.92);
+            text-shadow: 0 4px 24px rgba(35, 55, 75, 0.15);
+            font-family: 'Inter', -apple-system, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .hero-play-button {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.42);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2.5px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 10px 32px rgba(35, 55, 75, 0.18), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            z-index: 4;
+        }
+
+        .hero-play-button:hover {
+            transform: translate(-50%, -50%) scale(1.08);
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 14px 40px rgba(35, 55, 75, 0.22);
+        }
+
+        .hero-play-button svg {
+            margin-left: 4px;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Bottom Controls Bar */
+        .hero-controls-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8px 4px 8px;
+            width: 100%;
+        }
+
+        .hero-controls-left,
+        .hero-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-ctrl-icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #F4F7F9;
+            border: 1px solid #E6ECEF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #233F53;
+            transition: all 0.2s ease;
+        }
+
+        .hero-ctrl-icon-btn:hover {
+            background: #EAF0F4;
+            transform: scale(1.05);
+        }
+
+        .hero-ctrl-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            background: #F4F7F9;
+            border: 1px solid #E6ECEF;
+            font-size: 13px;
+            font-weight: 600;
+            color: #233F53;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .hero-ctrl-pill:hover {
+            background: #EAF0F4;
+            transform: translateY(-1px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #304F67;
+            text-decoration: none;
+            background: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16), inset 0px 7px 32px rgb(255, 255, 255);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.12), 0px 17.57px 10.88px rgba(181, 187, 203, 0.05), inset 0px 7px 32px rgb(255, 255, 255);
+        }
+
+        .btn-dark {
+            background: #304F67;
+            color: #fff;
+            border: 1px solid #304F67;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        .btn-dark:hover {
+            background: #3d6280;
+        }
+
+        /* ===== DIVIDERS ===== */
+        .section-divider {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            margin: 60px auto;
+        }
+
+        .section-divider .line {
+            flex: 1;
+            height: 1px;
+            background: #D6DCE1;
+            position: relative;
+        }
+
+        .section-divider .line::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .section-divider .label {
+            text-transform: uppercase;
+            color: #A0AFBB;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: -0.01em;
+            padding: 0 16px;
+            white-space: nowrap;
+        }
+
+        /* ===== STORY ===== */
+        .story-section {
+            max-width: 660px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .story-text {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: -0.018em;
+            color: #304F67;
+            margin-bottom: 24px;
+        }
+
+        .sketch-text {
+            font-family: 'Caveat', cursive;
+            font-size: 34px;
+            font-weight: 700;
+            color: #2b4961;
+            letter-spacing: -0.01em;
+            display: inline-block;
+            transform: rotate(-1.5deg);
+            line-height: 0.9;
+            vertical-align: -2px;
+            margin: 0 4px;
+        }
+
+        .store-badges {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center center;
+        }
+
+        .app-store-badge {
+            width: 32px;
+            height: 30px;
+            border-radius: 7px;
+            overflow: hidden;
+            display: inline-flex;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        .play-store-badge {
+            width: 32px;
+            height: 30px;
+            background: #ffffff;
+            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        .store-badge:hover {
+            transform: translateY(-6px) rotate(-8.8deg) !important;
+        }
+
+        .highlighter-green {
+            position: relative;
+            display: inline-block;
+            padding: 0 6px;
+            z-index: 1;
+        }
+
+        .highlighter-green::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -6px;
+            right: -6px;
+            bottom: 0px;
+            background: #B4F56E;
+            opacity: 0.88;
+            border-radius: 4px;
+            transform: rotate(-0.9deg);
+            z-index: -1;
+            box-shadow: 0 1px 4px rgba(180, 245, 110, 0.25);
+        }
+
+        .highlighter-green-one {
+            position: relative;
+            display: inline-block;
+            padding: 0 6px;
+            z-index: 1;
+        }
+
+        .highlighter-green-one::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: -4px;
+            right: -4px;
+            bottom: -1px;
+            background: #B4F56E;
+            opacity: 0.88;
+            border-radius: 4px;
+            transform: rotate(-0.5deg);
+            z-index: -1;
+        }
+
+        /* ===== FRAGMENTATION ===== */
+        .fragment-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .fragment-row .text {
+            font-size: 22px;
+            font-weight: 500;
+            color: #304F67;
+        }
+
+        .fragment-letters {
+            display: flex;
+            gap: 6px;
+        }
+
+        .frag-letter {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #14334D;
+            box-shadow: 0px 1.1px 2.75px rgba(181, 187, 203, 0.31), 0px 11.54px 7.15px rgba(181, 187, 203, 0.16);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .frag-letter:nth-child(1) {
+            transform: rotate(-7deg);
+        }
+
+        .frag-letter:nth-child(2) {
+            transform: rotate(-7deg);
+        }
+
+        .frag-letter:nth-child(3) {
+            transform: rotate(-12deg);
+        }
+
+        .frag-letter:nth-child(4) {
+            transform: rotate(7deg);
+        }
+
+        .frag-letter:nth-child(5) {
+            transform: rotate(-14deg);
+        }
+
+        .frag-letter:nth-child(6) {
+            transform: rotate(4deg);
+        }
+
+        .frag-letter:nth-child(7) {
+            transform: rotate(-6deg);
+        }
+
+        .frag-letter:nth-child(8) {
+            transform: rotate(4deg);
+        }
+
+        .frag-letter:nth-child(9) {
+            transform: rotate(-18deg);
+        }
+
+        .frag-letter:nth-child(10) {
+            transform: rotate(4deg);
+        }
+
+        .frag-letter:nth-child(11) {
+            transform: rotate(-30deg);
+        }
+
+        .frag-letter:nth-child(12) {
+            transform: rotate(21deg);
+        }
+
+        .frag-letter:hover {
+            transform: translateY(-6px) rotate(8.8deg) !important;
+        }
+
+        /* ===== WHAT'S THE SOLUTION (COLLAGE) ===== */
+        .built-headline {
+            font-size: 28px;
+            font-weight: 600;
+            color: #304F67;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .built-headline .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .built-headline .logo-badge img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+
+        .polaroids-collage {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr 1.15fr;
+            gap: 22px 20px;
+            max-width: 780px;
+            margin: 28px auto 44px auto;
+            position: relative;
+        }
+
+        .polaroid-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 8px 8px 12px 8px;
+            box-shadow: 0px 4px 14px rgba(48, 79, 104, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .polaroid-card:hover {
+            transform: translateY(-8px) scale(1.03) !important;
+            box-shadow: 0px 16px 32px rgba(48, 79, 104, 0.18), 0px 4px 10px rgba(0, 0, 0, 0.08);
+            z-index: 30;
+        }
+
+        .polaroid-img-wrap {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f0f2f5;
+        }
+
+        .polaroid-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .polaroid-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 21px;
+            font-weight: 700;
+            color: #304F67;
+            text-align: center;
+            margin-top: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .agency-muted-line {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #A0AFBB;
+            letter-spacing: -0.018em;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .polaroids-collage {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .polaroids-collage {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+            }
+        }
+
+        .built-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .built-row .text {
+            font-size: 22px;
+            font-weight: 500;
+            color: #304F67;
+        }
+
+        .built-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .built-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+
+        .built-logo span {
+            font-size: 22px;
+            font-weight: 700;
+            color: #304F67;
+        }
+
+        .red-highlight {
+            color: #E35C5C;
+            font-weight: 600;
+        }
+
+        .about-tag {
+            text-transform: uppercase;
+            color: rgba(48, 79, 104, 0.4);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+            margin-bottom: 24px;
+        }
+
+        .versatility-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #304F67;
+            margin: 16px 0;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        /* ===== PROJECT CATEGORIES ===== */
+        .project-cats {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .project-cat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #456176;
+            font-size: 13px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .project-cat:hover {
+            opacity: 0.7;
+        }
+
+        .project-cat .cat-icon {
+            font-size: 24px;
+        }
+
+        /* ===== KREE8-STYLE PRICING SECTION ===== */
+        .pricing-outer-frame {
+            background: #EEF2F6;
+            background: radial-gradient(circle at 10% 90%, rgba(162, 246, 219, 0.45) 0%, transparent 45%), 
+                        radial-gradient(circle at 90% 90%, rgba(188, 255, 140, 0.4) 0%, transparent 40%), 
+                        #EDF2F7;
+            border-radius: 36px;
+            padding: 44px 38px 48px;
+            margin-top: 28px;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 10px 30px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .pricing-tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .kree-tab-btn {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            color: #4A6578;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .kree-tab-btn:hover {
+            color: #1F364A;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .kree-tab-btn.active {
+            background: #FFFFFF;
+            color: #1E374B;
+            font-weight: 600;
+            box-shadow: 0 4px 18px rgba(32, 56, 76, 0.08);
+        }
+
+        .kree-pricing-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            padding: 38px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 24px rgba(35, 55, 75, 0.04);
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 40px;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .kree-card-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kree-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .kree-card-title {
+            font-size: 21px;
+            font-weight: 800;
+            color: #1F384C;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .kree-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #FFFFFF;
+            border: 1px solid #DFE5EA;
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #607B8F;
+            line-height: 1.2;
+        }
+
+        .kree-addon-box {
+            background: #F4F7FA;
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .kree-addon-box.highlighted {
+            background: #EBF5FF;
+            border-color: #BAE0FD;
+        }
+
+        .kree-addon-row-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .kree-addon-label-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #243D50;
+        }
+
+        .kree-tech-badges {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .kree-tech-badge {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .tech-next {
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .tech-webflow {
+            background: #146EF5;
+            border-radius: 5px;
+        }
+
+        .tech-framer {
+            background: #0055FF;
+            border-radius: 5px;
+        }
+
+        /* iOS style toggle switch */
+        .kree-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .kree-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .kree-toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #D3DBE2;
+            transition: 0.25s;
+            border-radius: 24px;
+        }
+
+        .kree-toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.25s;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .kree-toggle-switch input:checked + .kree-toggle-slider {
+            background-color: #1E88E5;
+        }
+
+        .kree-toggle-switch input:checked + .kree-toggle-slider:before {
+            transform: translateX(20px);
+        }
+
+        .kree-addon-price-sub {
+            font-size: 13px;
+            font-weight: 700;
+            color: #5C768A;
+            margin-top: 4px;
+        }
+
+        .kree-feature-row {
+            background: #F4F7FA;
+            border-radius: 14px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .kree-feature-title {
+            color: #243D50;
+            font-weight: 600;
+        }
+
+        .kree-feature-rate {
+            color: #506C80;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Check list */
+        .kree-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .kree-check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4A6578;
+        }
+
+        .kree-check-icon {
+            color: #8CA0AE;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        /* Stepper pill */
+        .kree-stepper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .kree-stepper-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #89EA1B;
+            border-radius: 9999px;
+            padding: 3px 8px;
+            box-shadow: 0 2px 6px rgba(137, 234, 27, 0.35);
+        }
+
+        .kree-stepper-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: none;
+            color: #285400;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s ease, background-color 0.2s;
+            line-height: 1;
+        }
+
+        .kree-stepper-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .kree-stepper-btn:active {
+            transform: scale(0.95);
+        }
+
+        .kree-stepper-val {
+            font-size: 15px;
+            font-weight: 800;
+            color: #1F4500;
+            min-width: 12px;
+            text-align: center;
+        }
+
+        .kree-stepper-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #243D50;
+        }
+
+        .kree-stepper-pill.blue-stepper {
+            background: #E0F2FE;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+        }
+
+        .kree-stepper-pill.blue-stepper .kree-stepper-btn {
+            color: #0284C7;
+            background: #FFFFFF;
+        }
+
+        .kree-stepper-pill.blue-stepper .kree-stepper-val {
+            color: #0369A1;
+        }
+
+        .kree-appstore-banner {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border: 1px solid #BAE6FD;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #0369A1;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .kree-appstore-banner b {
+            color: #0C4A6E;
+            font-weight: 700;
+        }
+
+        /* Service tags */
+        .kree-tags-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .kree-tag-item {
+            background: #F4F7FA;
+            border: 1px solid #E6ECF0;
+            border-radius: 9999px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #405C72;
+        }
+
+        /* Right column & gradient preview card */
+        .kree-card-right {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .kree-gradient-card {
+            border-radius: 24px;
+            padding: 28px 24px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .kree-gradient-card.blue-card {
+            background: linear-gradient(135deg, #7CD3FF 0%, #46A8FF 100%);
+            box-shadow: 0 14px 30px rgba(70, 168, 255, 0.32);
+        }
+
+        .kree-gradient-card.green-card {
+            background: linear-gradient(135deg, #A4F91D 0%, #76E304 100%);
+            box-shadow: 0 14px 30px rgba(118, 227, 4, 0.35);
+        }
+
+        .kree-card-watermark {
+            position: absolute;
+            right: -10px;
+            bottom: -20px;
+            width: 170px;
+            height: 170px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .kree-watermark-logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .blue-card .kree-watermark-logo {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .green-card .kree-watermark-logo {
+            color: rgba(0, 0, 0, 0.16);
+        }
+
+        .kree-card-details {
+            margin-top: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .kree-card-service-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .blue-card .kree-card-service-label {
+            color: #165688;
+        }
+
+        .green-card .kree-card-service-label {
+            color: #276203;
+        }
+
+        .kree-card-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .kree-card-price-value {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .blue-card .kree-card-price-value {
+            color: #0C4877;
+        }
+
+        .green-card .kree-card-price-value {
+            color: #194C00;
+        }
+
+        .kree-card-price-period {
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .blue-card .kree-card-price-period {
+            color: #165688;
+        }
+
+        .green-card .kree-card-price-period {
+            color: #276203;
+        }
+
+        /* Buttons under gradient card */
+        .kree-btn-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .kree-btn-start {
+            flex: 1;
+            background: #FFFFFF;
+            color: #213B4E;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 9999px;
+            padding: 12px 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .kree-btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+        }
+
+        .kree-btn-message {
+            flex: 1;
+            background: #274052;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 9999px;
+            padding: 12px 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(39, 64, 82, 0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .kree-btn-message:hover {
+            background: #1F3342;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(39, 64, 82, 0.32);
+        }
+
+        .kree-divider-sep {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.06);
+            margin: 28px 0;
+            border: none;
+        }
+
+        /* ===== KREE8-STYLE FOUNDER FOOTER ===== */
+        .founder-footer-section {
+            width: 100%;
+            margin-top: 60px;
+            position: relative;
+            padding-bottom: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .founder-footer-content {
+            max-width: 660px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: left;
+            position: relative;
+            z-index: 5;
+        }
+
+        .footer-lines-group {
+            margin-bottom: 30px;
+        }
+
+        .footer-story-text {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.55;
+            color: #274052;
+            letter-spacing: -0.015em;
+            margin-bottom: 2px;
+        }
+
+        .footer-dot {
+            font-size: 26px;
+            line-height: 1;
+            color: #274052;
+            margin: 2px 0;
+            font-weight: 700;
+        }
+
+        .footer-founder-block {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 24px;
+            margin-bottom: 34px;
+        }
+
+        .founder-signature-wrap {
+            margin-bottom: 4px;
+        }
+
+        .founder-name-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #243E51;
+            margin-top: 4px;
+        }
+
+        .founder-title-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #728A9B;
+            margin-top: 2px;
+        }
+
+        .footer-actions-row {
+            display: flex;
+            justify-content: flex-start;
+            gap: 14px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-pill-btn {
+            background: #FFFFFF;
+            color: #233C4E;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 12px 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.22s ease;
+        }
+
+        .footer-pill-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+        }
+
+        .footer-grassy-container {
+            width: 100%;
+            margin: 10px 0 0 0;
+            padding: 0;
+            line-height: 0;
+            display: block;
+            position: relative;
+        }
+
+        .footer-grassy-fade-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 75px;
+            background: linear-gradient(to bottom, #FAF8F2 0%, rgba(250, 248, 242, 0.6) 40%, rgba(250, 248, 242, 0) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .footer-grassy-img {
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-section {
+            text-align: center;
+            padding: 30px 20px 40px;
+            color: rgba(48, 79, 104, 0.5);
+            font-size: 13px;
+            width: 100%;
+        }
+
+        /* ===== MOBILE ===== */
+        .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .mobile-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 20px;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: #f5f5dc;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 10px;
+            }
+
+            .hero-modern-title {
+                font-size: 32px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .hero-logo-badge {
+                width: 34px;
+                height: 34px;
+                border-radius: 10px;
+                vertical-align: -5px;
+            }
+
+            .hero-video-viewport {
+                height: 220px;
+            }
+
+            .hero-watermark-text {
+                font-size: 36px;
+            }
+
+            .hero-watermark-logo {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+            }
+
+            .hero-play-button {
+                width: 56px;
+                height: 56px;
+            }
+
+            .story-text,
+            .fragment-row .text,
+            .built-row .text {
+                font-size: 18px;
+            }
+
+            .frag-letter {
+                width: 26px;
+                height: 26px;
+                font-size: 11px;
+                border-radius: 6px;
+            }
+
+            .content-card {
+                border-radius: 20px;
+                padding: 40px 0;
+            }
+
+            .pricing-outer-frame {
+                padding: 24px 16px;
+                border-radius: 24px;
+            }
+
+            .kree-pricing-card {
+                grid-template-columns: 1fr;
+                padding: 26px 20px;
+                gap: 26px;
+            }
+
+            .kree-btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MOBILE HEADER -->
+    <div class="mobile-header">
+        <a href="/" class="logo"><img src="logo1.png" alt="8bitbrains"><span>8bitbrains</span></a>
+        <div class="menu-dots"><span><i></i><i></i><i></i></span></div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <div class="logo-row">
+                <a href="/" class="logo"><img src="logo1.png" alt="8bitbrains"><span>8bitbrains</span></a>
+                <div class="menu-dots"><span><i></i><i></i><i></i></span></div>
+            </div>
+            <div class="divider"></div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link active">
+                    <div class="nav-link-left">
+                        <span class="nav-icon"><svg viewBox="0 0 20 20" fill="#304F67">
+                                <path
+                                    d="M11.3 2.84a1.5 1.5 0 00-2.6 0L3.5 6.41A1.5 1.5 0 002.5 8.3v6.91c0 1.27 1.03 2.29 2.29 2.29h2.5a.63.63 0 00.63-.63v-2.91a2.08 2.08 0 014.16 0v2.91c0 .35.28.63.63.63h2.5a2.29 2.29 0 002.29-2.29V8.3a1.5 1.5 0 00-1-1.89L11.3 2.84z" />
+                            </svg></span>
+                        <span>Home</span>
+                    </div>
+                    <span class="arrow-icon">→</span>
+                </a>
+                <a href="#projects" class="nav-link">
+                    <div class="nav-link-left">
+                        <span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#456176" stroke-width="1.5">
+                                <rect x="3" y="3" width="6" height="8" rx="1.5" />
+                                <rect x="11" y="9" width="6" height="8" rx="1.5" />
+                                <rect x="11" y="3" width="6" height="4" rx="1" />
+                                <rect x="3" y="13" width="6" height="4" rx="1" />
+                            </svg></span>
+                        <span>Projects</span>
+                    </div>
+                </a>
+                <a href="#services" class="nav-link">
+                    <div class="nav-link-left">
+                        <span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#456176" stroke-width="1.5">
+                                <path
+                                    d="M9.17 10.83h1.48c.66 0 1.3-.26 1.77-.73l3.84-3.85a1.77 1.77 0 00-2.5-2.5L9.9 7.6a2.08 2.08 0 00-.73 1.77v1.46z" />
+                                <path
+                                    d="M10 17.5c-.42 0-2.55-.73-4.4-2.58-3.09-3.09-3.88-7.31-1.77-9.43 1.74-1.74 4.9-1.51 7.69.32" />
+                                <path d="M14.26 8.33c2.4 2.78 3.42 5.61 1.58 7.08-1.38 1.11-3.13-.17-4.15-1.16" />
+                            </svg></span>
+                        <span>Playground</span>
+                    </div>
+                </a>
+                <a href="#pricing" class="nav-link">
+                    <div class="nav-link-left">
+                        <span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#456176" stroke-width="1.5">
+                                <circle cx="10" cy="10" r="7.5" />
+                                <path
+                                    d="M10 6.15v-.86M10 13.85v.86M11.85 7.43a2.1 2.1 0 00-1.85-.86h-.24c-1.05 0-1.9.68-1.9 1.52v.07c0 .6.43 1.15 1.1 1.42l2.08.84c.67.27 1.1.82 1.1 1.42 0 .88-.89 1.59-1.99 1.59H10a2.1 2.1 0 01-1.85-.86" />
+                            </svg></span>
+                        <span>Pricing</span>
+                    </div>
+                </a>
+                <a href="#" class="nav-link" style="opacity:0.7;cursor:not-allowed;">
+                    <div class="nav-link-left">
+                        <span class="nav-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#456176" stroke-width="1.5">
+                                <rect x="2.29" y="6.46" width="15.42" height="10.42" rx="1.67" />
+                                <path d="M2.29 10.63h15.42M10 10.63v2.08" />
+                                <path d="M6.67 6.46V4.79a1.67 1.67 0 011.67-1.67h3.33a1.67 1.67 0 011.67 1.67v1.67" />
+                            </svg></span>
+                        <span>Career</span>
+                    </div>
+                    <span class="nav-badge">Coming soon</span>
+                </a>
+            </nav>
+            <div class="nav-section-title">Start Project</div>
+            <div class="nav-actions">
+                <a href="mailto:nectarsof@gmail.com" class="nav-action">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                    <span>Start Project</span>
+                </a>
+                <a href="mailto:nectarsof@gmail.com" class="nav-action">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <span>Send a Message</span>
+                </a>
+            </div>
+        </div>
+        <div class="sidebar-brands">
+            <span class="brands-title">Worked with <b>10+ Brands</b></span>
+            <div class="brands-grid">
+                <span class="brand-tag">✦ StartupX</span>
+                <span class="brand-tag">✦ PixelForge</span>
+                <span class="brand-tag">✦ CodeNest</span>
+                <span class="brand-tag">✦ AppVault</span>
+                <span class="brand-tag">✦ DigiCraft</span>
+                <span class="brand-tag">✦ ByteWorks</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="content-card">
+
+            <!-- HERO (SS1 DESIGN) -->
+            <div class="hero-container">
+                <p class="hero-tag">HELPED 20+ FOUNDERS BUILD <b>DIGITAL PRODUCTS</b></p>
+                
+                <h1 class="hero-modern-title">
+                    The <span class="hero-logo-badge" title="8bitbrains"><img src="logo1.png" alt="8bitbrains logo"></span> studio <span class="muted-text">for brands</span><br>
+                    <span class="muted-text">who simply</span> can't afford to<br>
+                    be average
+                </h1>
+
+                <div class="hero-buttons">
+                    <a href="mailto:nectarsof@gmail.com" class="hero-pill-btn">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                        <span>Start Project</span>
+                    </a>
+                    <a href="#pricing" class="hero-pill-btn">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                        <span>See Pricing</span>
+                    </a>
+                </div>
+
+                <!-- SHOWCASE VIDEO PLAYER CARD -->
+                <div class="hero-showcase-card">
+                    <div class="hero-video-viewport">
+                        <img src="grass-hill.png" alt="8bitbrains Showreel Hill" class="hero-showcase-hill">
+                        <div class="hero-watermark-wrap">
+                            <img src="logo1.png" alt="8 logo" class="hero-watermark-logo">
+                            <span class="hero-watermark-text">8BITBRAINS</span>
+                        </div>
+                        <div class="hero-play-button" id="heroPlayBtn" title="Play Showreel">
+                            <svg width="22" height="24" viewBox="0 0 22 24" fill="#ffffff">
+                                <polygon points="3,1 20,12 3,23"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="hero-controls-bar">
+                        <div class="hero-controls-left">
+                            <button type="button" class="hero-ctrl-icon-btn" title="Play/Pause">
+                                <svg width="13" height="13" viewBox="0 0 14 14" fill="#233F53">
+                                    <polygon points="2,1 12,7 2,13"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="hero-ctrl-pill" id="heroMuteToggle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#233F53" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                                    <line x1="23" y1="9" x2="17" y2="15"/>
+                                    <line x1="17" y1="9" x2="23" y2="15"/>
+                                </svg>
+                                <span>Mute</span>
+                            </button>
+                        </div>
+                        <div class="hero-controls-right">
+                            <button type="button" class="hero-ctrl-pill" id="heroFullscreenToggle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#233F53" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                                </svg>
+                                <span>Full Screen</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STORY -->
+            <div class="section-divider" style="margin-top:80px;">
+                <div class="line"></div>
+            </div>
+
+            <div class="story-section" style="margin-top:20px;">
+                <p class="story-text">We too love the process of building a product of our own....<br>An Idea, <span class="sketch-text">A Sketch</span>, A feeling that this could become something real<span class="store-badges"><span class="store-badge app-store-badge" title="App Store"><svg viewBox="0 0 32 30" width="32" height="30" fill="none"><rect width="32" height="30" rx="7" fill="#1D9BF0"/><path d="M14.5 9.5l1.3-2.3c.3-.5 1-.7 1.5-.4.5.3.7 1 .4 1.5l-1.3 2.3m-1.9 1.1L10 19.3c-.3.5-.1 1.2.4 1.5.5.3 1.2.1 1.5-.4l4.2-7.5m-1.2 5.9h7.3c.6 0 1.1.5 1.1 1.1s-.5 1.1-1.1 1.1H11c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1h3.8" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><span class="store-badge play-store-badge" title="Google Play Store"><svg viewBox="0 0 28 28" width="26" height="26"><path d="M6 5.2a1.3 1.3 0 00-.3 1v15.6c0 .4.1.8.3 1l9.1-9-9.1-8.6z" fill="#00C3FF"/><path d="M19.3 18.4l-4.2-4.6-9.1 8.6c.4.4 1 .5 1.6.2l11.7-6.2z" fill="#FF334B"/><path d="M15.1 13.8l4.2-4.6-11.7-6.2c-.6-.3-1.2-.2-1.6.2l9.1 10.6z" fill="#00E676"/><path d="M22.5 13.3l-3.2-1.7-4.2 4.2 4.2 4.2 3.2-1.7c1-.5 1-1.4 0-1.9z" fill="#FFD400"/></svg></span></span></p>
+                <p class="story-text" style="margin-top:28px;">But then came the hard part....<span class="highlighter-green">“Finding designers.”</span></p>
+                <div style="margin-top:28px;">
+                    <p class="story-text" style="margin-bottom:8px;">Explaining the vision again and again and again and again...</p>
+                    <p class="story-text" style="margin-bottom:8px;">One person for UI, Another for branding,</p>
+                    <p class="story-text" style="margin-bottom:8px;">Someone else for motion.</p>
+                    <p class="story-text">Compromising, co-ordinating, waiting…</p>
+                </div>
+                <p class="story-text" style="margin-top:28px;">Somewhere along the way, the product starts to feel less exciting, and trust us it’s not you or the designers.</p>
+            </div>
+
+            <!-- WHAT'S THE REAL PROBLEM? -->
+            <div class="section-divider">
+                <div class="line" style="flex:0 0 20px;"></div>
+                <span class="label">What's the real Problem?</span>
+                <div class="line"></div>
+            </div>
+
+            <div class="story-section" style="margin-top:20px;">
+                <div class="fragment-row">
+                    <span class="text">It's</span>
+                    <div class="fragment-letters">
+                        <div class="frag-letter">F</div>
+                        <div class="frag-letter">R</div>
+                        <div class="frag-letter">A</div>
+                        <div class="frag-letter">G</div>
+                        <div class="frag-letter">M</div>
+                        <div class="frag-letter">E</div>
+                        <div class="frag-letter">N</div>
+                        <div class="frag-letter">T</div>
+                        <div class="frag-letter">A</div>
+                        <div class="frag-letter">T</div>
+                        <div class="frag-letter">I</div>
+                        <div class="frag-letter">O</div>
+                        <div class="frag-letter">N</div>
+                    </div>
+                </div>
+                <div style="margin-top:24px;">
+                    <p class="story-text" style="margin-bottom:6px;">- Too many people</p>
+                    <p class="story-text" style="margin-bottom:6px;">- Too many tools</p>
+                    <p class="story-text" style="margin-bottom:28px;">- Too many opinions</p>
+                </div>
+                <p class="story-text">Design isn't meant to be stitched together. It's meant to move <span class="highlighter-green-one">as ONE</span></p>
+            </div>
+
+            <!-- WHAT'S THE SOLUTION? -->
+            <div class="section-divider">
+                <div class="line" style="flex:0 0 20px;"></div>
+                <span class="label">What's the Solution?</span>
+                <div class="line"></div>
+            </div>
+
+            <div class="story-section" style="margin-top:20px; max-width: 820px;">
+                <div class="built-headline">
+                    <span>That’s why we built</span>
+                    <span class="logo-badge">
+                        <img src="logo1.png" alt="8bitbrains">
+                        <span style="font-weight:700; color:#304F67;">8BITBRAINS</span>
+                    </span>
+                </div>
+
+                <!-- POLAROID COLLAGE -->
+                <div class="polaroids-collage">
+                    <!-- CARD 1: Feels fresh -->
+                    <div class="polaroid-card" style="transform: rotate(-2.5deg);">
+                        <div class="pin pin-red" style="position:absolute; top:-10px; right:14px; z-index:10; filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
+                            <svg width="24" height="32" viewBox="0 0 26 34" fill="none">
+                                <circle cx="13" cy="13" r="10" fill="#E62E2E"/>
+                                <circle cx="10" cy="10" r="3.5" fill="#FF8585" opacity="0.8"/>
+                                <path d="M9 20L13 32L17 20H9Z" fill="#C41C1C"/>
+                            </svg>
+                        </div>
+                        <div class="masking-tape" style="position:absolute; bottom:-8px; left:-14px; width:64px; height:22px; background:rgba(235, 222, 168, 0.78); transform:rotate(-22deg); z-index:10; box-shadow:0 1px 3px rgba(0,0,0,0.12); clip-path:polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%);"></div>
+                        <div class="polaroid-img-wrap" style="height: 230px;">
+                            <img src="frame-fresh.jpg" alt="Feels fresh">
+                        </div>
+                        <div class="polaroid-caption">Feels fresh.....</div>
+                    </div>
+
+                    <!-- CARD 2: Icon/Facee -->
+                    <div class="polaroid-card" style="transform: rotate(1.2deg);">
+                        <div class="paperclip" style="position:absolute; top:-12px; left:14px; z-index:10; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
+                            <svg width="20" height="34" viewBox="0 0 22 38" fill="none">
+                                <path d="M6 10V28C6 31.3 8.7 34 12 34C15.3 34 18 31.3 18 28V6C18 3.8 16.2 2 14 2C11.8 2 10 3.8 10 6V26C10 27.1 10.9 28 12 28C13.1 28 14 27.1 14 26V10" stroke="#BDC5D0" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="polaroid-img-wrap" style="height: 180px; background: #C5F77A; display: flex; align-items: center; justify-content: center;">
+                            <img src="anp.png" alt="Icon/Facee" style="width: 130px; height: 130px; object-fit: contain; image-rendering: pixelated; border-radius: 12px;">
+                        </div>
+                        <div class="polaroid-caption">Icon/Facee</div>
+                    </div>
+
+                    <!-- CARD 3: Our Motto -->
+                    <div class="polaroid-card" style="transform: rotate(2deg);">
+                        <div class="pin pin-green" style="position:absolute; top:-10px; left:50%; transform:translateX(-50%); z-index:10; filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
+                            <svg width="24" height="32" viewBox="0 0 26 34" fill="none">
+                                <circle cx="13" cy="13" r="10" fill="#48B81B"/>
+                                <circle cx="10" cy="10" r="3.5" fill="#9BF57D" opacity="0.8"/>
+                                <path d="M9 20L13 32L17 20H9Z" fill="#328A10"/>
+                            </svg>
+                        </div>
+                        <div class="polaroid-img-wrap" style="height: 180px; background: linear-gradient(145deg, #7BBFFF 0%, #B4F56E 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 14px; position: relative;">
+                            <div style="font-family:'Inter',sans-serif; font-weight:800; font-size:18px; line-height:1.15; color:#224059; text-transform:uppercase; text-align:center; letter-spacing:-0.03em;">
+                                DESIGNS<br>THAT<br><span style="color:#1b5e20;">MAKE SENSE</span>
+                            </div>
+                            <div style="position:absolute; bottom:8px; right:8px; width:22px; height:22px; background:#224059; border-radius:3px; opacity:0.85; display:flex; align-items:center; justify-content:center;">
+                                <svg width="16" height="16" viewBox="0 0 14 14" fill="#fff"><rect x="1" y="1" width="4" height="4"/><rect x="9" y="1" width="4" height="4"/><rect x="1" y="9" width="4" height="4"/><rect x="7" y="7" width="2" height="2"/><rect x="9" y="9" width="4" height="4"/></svg>
+                            </div>
+                        </div>
+                        <div class="polaroid-caption">Our Motto</div>
+                    </div>
+
+                    <!-- CARD 4: Brand Feel -->
+                    <div class="polaroid-card" style="transform: rotate(1deg);">
+                        <div class="polaroid-img-wrap" style="height: 130px; background: linear-gradient(135deg, #4DE3BE 0%, #76E05B 100%); display: flex; align-items: center; justify-content: space-around; padding: 12px; position: relative;">
+                            <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.85); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+                                <span style="font-size:18px;">🧠</span>
+                            </div>
+                            <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.85); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+                                <span style="font-size:18px;">✨</span>
+                            </div>
+                            <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.85); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.12);">
+                                <span style="font-size:18px;">📱</span>
+                            </div>
+                        </div>
+                        <div class="polaroid-caption">Brand Feel</div>
+                    </div>
+
+                    <!-- CARD 5: Posters -->
+                    <div class="polaroid-card" style="transform: rotate(-1.5deg);">
+                        <div class="binder-clip" style="position:absolute; top:-10px; left:16px; z-index:10; filter:drop-shadow(0 2px 5px rgba(0,0,0,0.3));">
+                            <svg width="26" height="22" viewBox="0 0 28 24" fill="none">
+                                <rect x="4" y="8" width="20" height="14" rx="2" fill="#2E3440"/>
+                                <path d="M8 8V4C8 2.9 8.9 2 10 2H18C19.1 2 20 2.9 20 4V8" stroke="#8892B0" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="polaroid-img-wrap" style="height: 180px;">
+                            <img src="frame-billboard.jpg" alt="Posters">
+                        </div>
+                        <div class="polaroid-caption">Posters</div>
+                    </div>
+
+                    <!-- CARD 6: Just a number :) -->
+                    <div class="polaroid-card" style="transform: rotate(2.8deg);">
+                        <div class="paperclip" style="position:absolute; top:-12px; right:14px; z-index:10; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
+                            <svg width="20" height="34" viewBox="0 0 22 38" fill="none">
+                                <path d="M6 10V28C6 31.3 8.7 34 12 34C15.3 34 18 31.3 18 28V6C18 3.8 16.2 2 14 2C11.8 2 10 3.8 10 6V26C10 27.1 10.9 28 12 28C13.1 28 14 27.1 14 26V10" stroke="#BDC5D0" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="polaroid-img-wrap" style="height: 230px;">
+                            <img src="frame-number8.jpg" alt="Just a number :)">
+                        </div>
+                        <div class="polaroid-caption">Just a number :)</div>
+                    </div>
+                </div>
+
+                <!-- AGENCY MUTED LINES -->
+                <div style="margin-top: 40px;">
+                    <p class="agency-muted-line">Not as another agency.</p>
+                    <p class="agency-muted-line">Not as a marketplace of freelancers...</p>
+                    <p class="story-text" style="margin-top: 24px;">But as one team that sees the <span class="highlighter-green">whole picture:</span></p>
+                </div>
+            </div>
+
+            <!-- ABOUT -->
+            <div class="section-divider">
+                <div class="line" style="flex:0 0 20px;"></div>
+                <span class="label">About 8bitbrains</span>
+                <div class="line"></div>
+            </div>
+
+            <div class="story-section" style="margin-top:20px;" id="services">
+                <p class="about-tag">About 8bitbrains</p>
+                <p class="story-text">There's a reason our logo is a 🧠 Brain. They are known for one thing:</p>
+                <div class="versatility-badge">Versatility</div>
+                <p class="story-text" style="margin-top:24px;">That's how we approach design. We don't force one
+                    "8bitbrains style" onto everything...<br>Different products. Different audiences. Different energy.
+                </p>
+                <p class="story-text">We design and develop apps, websites, and digital products that feel native to
+                    <em>your</em> brand — not ours.</p>
+            </div>
+
+            <div class="story-section" style="margin-top:40px;">
+
+                <p class="story-text">Okay, so you probably seen enough by now.</p>
+                <p class="story-text" style="margin-bottom:8px;font-weight:600;">The work makes sense.</p>
+                <p class="story-text" style="margin-bottom:8px;font-weight:600;">The approach feels familiar.</p>
+                <p class="story-text" style="margin-bottom:24px;font-weight:600;">And the process doesn't feel heavy.
+                </p>
+                <p class="story-text">The next step doesn't need convincing, it just needs a <span
+                        class="highlight">decision</span></p>
+            </div>
+
+            <!-- PRICING -->
+            <div class="section-divider" id="pricing">
+                <div class="line" style="flex:0 0 20px;"></div>
+                <span class="label">Pricing</span>
+                <div class="line"></div>
+            </div>
+
+            <div class="story-section" style="margin-top:20px; max-width: 900px;">
+                <p class="story-text">You can choose between <strong>One-time plan</strong>, or a <strong>Retainer
+                        plan</strong> (fixed monthly price), whatever works best for you.</p>
+
+                <div class="pricing-outer-frame">
+                    <!-- TABS (Removed Product Animation) -->
+                    <div class="pricing-tabs-wrapper">
+                        <button type="button" class="kree-tab-btn active" data-tab="landing">Landing Page</button>
+                        <button type="button" class="kree-tab-btn" data-tab="branding">Branding</button>
+                        <button type="button" class="kree-tab-btn" data-tab="mobile">Mobile Apps (iOS + Android)</button>
+                    </div>
+
+                    <!-- CARD 1: TAB-BASED SERVICE CARD -->
+                    <div class="kree-pricing-card" id="servicePricingCard">
+                        <!-- LEFT DYNAMIC CONTENT -->
+                        <div class="kree-card-left" id="serviceCardLeft">
+                            <!-- Injected by script -->
+                        </div>
+
+                        <!-- RIGHT GRADIENT CARD & BUTTONS -->
+                        <div class="kree-card-right">
+                            <div class="kree-gradient-card blue-card" id="serviceCardPreview">
+                                <svg class="kree-card-watermark" viewBox="0 0 100 100" fill="none">
+                                    <circle cx="50" cy="50" r="45" stroke="#ffffff" stroke-width="5" opacity="0.35"/>
+                                    <path d="M30 50h40M50 30v40" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.35"/>
+                                    <circle cx="50" cy="50" r="16" fill="#ffffff" opacity="0.2"/>
+                                    <path d="M36 40c0-6 6-10 14-10s14 4 14 10-6 8-14 14v4" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
+                                </svg>
+                                <div class="kree-watermark-logo">8BITBRAINS</div>
+                                <div class="kree-card-details">
+                                    <span class="kree-card-service-label" id="serviceLabelPreview">LANDING PAGE DESIGN</span>
+                                    <div class="kree-card-price-row">
+                                        <div class="kree-card-price-value" id="servicePricePreview">₹5,149</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kree-btn-group">
+                                <a href="mailto:nectarsof@gmail.com?subject=Start%20Project%20-%208bitbrains" class="kree-btn-start">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                                    Start Project
+                                </a>
+                                <a href="mailto:nectarsof@gmail.com?subject=Project%20Inquiry%20-%208bitbrains" class="kree-btn-message">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    Send a Message
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBTLE DIVIDER -->
+                    <hr class="kree-divider-sep">
+
+                    <!-- CARD 2: 8BITBRAINS RETAINER CARD -->
+                    <div class="kree-pricing-card">
+                        <!-- LEFT CONTENT -->
+                        <div class="kree-card-left">
+                            <h3 class="kree-card-title" style="margin-bottom:16px;">8BITBRAINS RETAINER</h3>
+                            
+                            <!-- INTERACTIVE ACTIVE TASK STEPPER -->
+                            <div class="kree-stepper-row">
+                                <span class="kree-check-icon">✓</span>
+                                <div class="kree-stepper-pill">
+                                    <button type="button" class="kree-stepper-btn" id="taskMinusBtn" aria-label="Decrease active tasks">−</button>
+                                    <span class="kree-stepper-val" id="taskCountVal">1</span>
+                                    <button type="button" class="kree-stepper-btn" id="taskPlusBtn" aria-label="Increase active tasks">+</button>
+                                </div>
+                                <span class="kree-stepper-text" id="taskCountLabel">Active Task</span>
+                            </div>
+
+                            <!-- CHECKLIST -->
+                            <ul class="kree-checklist">
+                                <li class="kree-check-item">
+                                    <span class="kree-check-icon">✓</span>
+                                    <span>Desktop, Tablet, Mobile Responsive</span>
+                                </li>
+                                <li class="kree-check-item">
+                                    <span class="kree-check-icon">✓</span>
+                                    <span>Figma File</span>
+                                </li>
+                                <li class="kree-check-item">
+                                    <span class="kree-check-icon">✓</span>
+                                    <span>No Limit to revisions</span>
+                                </li>
+                                <li class="kree-check-item">
+                                    <span class="kree-check-icon">✓</span>
+                                    <span>Updates every 48 hours</span>
+                                </li>
+                                <li class="kree-check-item">
+                                    <span class="kree-check-icon">✓</span>
+                                    <span>Includes all the services</span>
+                                </li>
+                            </ul>
+
+                            <!-- SERVICE PILLS (NO ANIMATION) -->
+                            <div class="kree-tags-grid">
+                                <span class="kree-tag-item">Landing Page</span>
+                                <span class="kree-tag-item">Logo</span>
+                                <span class="kree-tag-item">Mobile Apps</span>
+                                <span class="kree-tag-item">Web Apps</span>
+                                <span class="kree-tag-item">Product Design</span>
+                                <span class="kree-tag-item">Social Media Graphics</span>
+                                <span class="kree-tag-item">UI/UX Systems</span>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT GREEN GRADIENT CARD & BUTTONS -->
+                        <div class="kree-card-right">
+                            <div class="kree-gradient-card green-card">
+                                <svg class="kree-card-watermark" viewBox="0 0 100 100" fill="none">
+                                    <circle cx="50" cy="50" r="45" stroke="#1F4500" stroke-width="5" opacity="0.22"/>
+                                    <path d="M30 50h40M50 30v40" stroke="#1F4500" stroke-width="5" stroke-linecap="round" opacity="0.22"/>
+                                    <circle cx="50" cy="50" r="16" fill="#1F4500" opacity="0.12"/>
+                                </svg>
+                                <div class="kree-watermark-logo">8BITBRAINS</div>
+                                <div class="kree-card-details">
+                                    <span class="kree-card-service-label">8BITBRAINS RETAINER SERVICE</span>
+                                    <div class="kree-card-price-row">
+                                        <div class="kree-card-price-value" id="retainerPriceVal">₹9,999</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kree-btn-group">
+                                <a href="mailto:nectarsof@gmail.com?subject=Retainer%20Plan%20-%208bitbrains" class="kree-btn-start">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                                    Start Project
+                                </a>
+                                <a href="mailto:nectarsof@gmail.com?subject=Retainer%20Inquiry%20-%208bitbrains" class="kree-btn-message">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    Send a Message
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOUNDER FOOTER SECTION -->
+            <div class="founder-footer-section">
+                <div class="founder-footer-content">
+                    <div class="footer-lines-group">
+                        <p class="footer-story-text">You don’t need ten tools.</p>
+                        <p class="footer-story-text">You don’t need to overthink this.</p>
+                        <div class="footer-dot">.</div>
+                        <div class="footer-dot">.</div>
+                        <p class="footer-story-text" style="margin-top:14px;">You just need <span class="highlighter-green">8bitbrains</span></p>
+                    </div>
+
+                    <!-- FOUNDER SIGNATURE -->
+                    <div class="footer-founder-block">
+                        <div class="founder-signature-wrap">
+                            <svg class="founder-signature-svg" width="165" height="58" viewBox="0 0 170 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- T top bar flourish -->
+                                <path d="M14 18C28 11 50 13 64 16" stroke="#22394A" stroke-width="2.6" stroke-linecap="round"/>
+                                <!-- T stem & loop -->
+                                <path d="M38 16C37 26 31 40 26 48C24 51 26 53 30 51C36 47 43 38 46 30" stroke="#22394A" stroke-width="2.4" stroke-linecap="round"/>
+                                <!-- a -->
+                                <path d="M46 32C44 41 47 46 52 46C57 46 60 39 60 32" stroke="#22394A" stroke-width="2.2" stroke-linecap="round"/>
+                                <!-- n -->
+                                <path d="M60 38C61 44 65 47 69 46C73 45 75 39 76 33" stroke="#22394A" stroke-width="2.2" stroke-linecap="round"/>
+                                <!-- a -->
+                                <path d="M76 39C77 44 80 47 84 46C88 45 91 38 93 32" stroke="#22394A" stroke-width="2.2" stroke-linecap="round"/>
+                                <!-- J (capital cursive with descender loop) -->
+                                <path d="M102 24C108 17 116 17 119 22C122 27 120 35 117 44C113 57 107 63 101 60C98 58 101 51 107 45L118 36" stroke="#22394A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <!-- o -->
+                                <path d="M118 38C122 33 128 33 130 37C132 42 128 47 123 47C119 47 118 42 120 38" stroke="#22394A" stroke-width="2.2" stroke-linecap="round"/>
+                                <!-- h -->
+                                <path d="M130 22L130 46M130 39C133 33 139 33 142 38C144 42 143 46 143 46" stroke="#22394A" stroke-width="2.2" stroke-linecap="round"/>
+                                <!-- n -->
+                                <path d="M143 39C146 33 152 33 155 38C157 42 156 46 158 46" stroke="#22394A" stroke-width="2.2" stroke-linecap="round"/>
+                                <!-- underline flourish -->
+                                <path d="M22 53C58 57 110 54 158 48C164 47 167 50 161 52C145 58 104 60 72 60" stroke="#22394A" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+                            </svg>
+                        </div>
+                        <div class="founder-name-label">Tana John</div>
+                        <div class="founder-title-label">Founder</div>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="footer-actions-row">
+                        <a href="mailto:nectarsof@gmail.com?subject=Start%20Project%20-%208bitbrains" class="footer-pill-btn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                            <span>Start Project</span>
+                        </a>
+                        <a href="#pricing" class="footer-pill-btn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            <span>See Pricing</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- GRASSY HILL -->
+                <div class="footer-grassy-container">
+                    <div class="footer-grassy-fade-top"></div>
+                    <img src="grass-hill.png" alt="Lush grass hill" class="footer-grassy-img">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER COPYRIGHT & SOCIAL -->
+        <footer class="footer-section">
+            <p>Nectar © 2024 [8bitbrains] — App & Website Agency</p>
+            <div style="display:flex;gap:16px;justify-content:center;margin-top:12px;">
+                <a href="https://www.twitter.com/nikhilnectar"
+                    style="color:#456176;text-decoration:none;">Twitter</a>
+                <a href="https://www.instagram.com/8bitbrains"
+                    style="color:#456176;text-decoration:none;">Instagram</a>
+                <a href="https://www.youtube.com/@8bitbrainsX"
+                    style="color:#456176;text-decoration:none;">YouTube</a>
+            </div>
+        </footer>
+    </main>
+
+    <!-- PRICING INTERACTION SCRIPT -->
+    <script>
+        (function() {
+            let currentTab = 'landing';
+            let devAddonActive = false;
+            let extraPagesCount = 0;
+
+            const tabsData = {
+                landing: {
+                    title: 'LANDING PAGE',
+                    badge: '⏱ 5-7 Days',
+                    previewLabel: 'LANDING PAGE DESIGN',
+                    basePrice: 5149,
+                    renderLeft: function(hasDev, extraPages) {
+                        return `
+                            <div class="kree-card-header">
+                                <h3 class="kree-card-title">LANDING PAGE</h3>
+                                <span class="kree-badge-pill">⏱ 5-7 Days</span>
+                            </div>
+                            <div class="kree-addon-box ${hasDev ? 'highlighted' : ''}" id="devAddonBox">
+                                <div class="kree-addon-row-top">
+                                    <div class="kree-addon-label-group">
+                                        <span>Add Development</span>
+                                        <div class="kree-tech-badges">
+                                            <span class="kree-tech-badge tech-next" title="Next.js">N</span>
+                                            <span class="kree-tech-badge tech-webflow" title="Webflow">W</span>
+                                            <span class="kree-tech-badge tech-framer" title="Framer">F</span>
+                                        </div>
+                                    </div>
+                                    <label class="kree-toggle-switch">
+                                        <input type="checkbox" id="devToggleCheckbox" ${hasDev ? 'checked' : ''}>
+                                        <span class="kree-toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="kree-addon-price-sub">+₹1,200 (Clean Code & Deployment)</div>
+                            </div>
+                            <div class="kree-feature-row">
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <span class="kree-feature-title">Extra Pages</span>
+                                    <div class="kree-stepper-pill blue-stepper">
+                                        <button type="button" class="kree-stepper-btn" id="extraPageMinusBtn" aria-label="Decrease extra pages">−</button>
+                                        <span class="kree-stepper-val" id="extraPageVal">${extraPages}</span>
+                                        <button type="button" class="kree-stepper-btn" id="extraPagePlusBtn" aria-label="Increase extra pages">+</button>
+                                    </div>
+                                </div>
+                                <span class="kree-feature-rate">+₹300/PAGE</span>
+                            </div>
+                            <ul class="kree-checklist">
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Custom Wireframe & High-Converting Layout</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Desktop, Tablet & Mobile Responsive</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Full Figma System & Assets</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>No Limit to revisions</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Delivered within 5-7 days</span></li>
+                            </ul>
+                        `;
+                    }
+                },
+                branding: {
+                    title: 'BRANDING',
+                    badge: '⏱ 10-15 Days',
+                    previewLabel: 'FULL BRANDING BY 8BITBRAINS',
+                    basePrice: 9999,
+                    renderLeft: function() {
+                        return `
+                            <div class="kree-card-header">
+                                <h3 class="kree-card-title">BRANDING</h3>
+                                <span class="kree-badge-pill">⏱ 10-15 Days</span>
+                            </div>
+                            <ul class="kree-checklist">
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Logo, typography, colors</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Brand assets & iconography</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Social Media Templates</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Brand guidelines & vector source</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>5 full brand explorations</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Ready-to-use brand kit</span></li>
+                            </ul>
+                        `;
+                    }
+                },
+                mobile: {
+                    title: 'MOBILE APP (iOS + ANDROID)',
+                    badge: '⏱ 30-45 Days',
+                    previewLabel: 'FULL APP (APP STORE + PLAY STORE)',
+                    basePrice: 150000,
+                    renderLeft: function() {
+                        return `
+                            <div class="kree-card-header">
+                                <h3 class="kree-card-title">MOBILE APP (iOS & ANDROID)</h3>
+                                <span class="kree-badge-pill">⏱ 30-45 Days</span>
+                            </div>
+                            <div class="kree-appstore-banner">
+                                <span>📱</span>
+                                <span>Developed from scratch & published on <b>Apple App Store</b> and <b>Google Play Store</b></span>
+                            </div>
+                            <ul class="kree-checklist">
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>End-to-End App Developed from Scratch</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Published on both iOS App Store & Android Play Store</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Complete UI/UX Design System in Figma</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Backend APIs, Database & User Authentication</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Push Notifications, Analytics & Payment Gateway</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>Store Review Submission & Approval Guarantee</span></li>
+                                <li class="kree-check-item"><span class="kree-check-icon">✓</span><span>100% Full Source Code Ownership</span></li>
+                            </ul>
+                        `;
+                    }
+                }
+            };
+
+            function updateServiceCard() {
+                const data = tabsData[currentTab];
+                const cardLeft = document.getElementById('serviceCardLeft');
+                const previewLabel = document.getElementById('serviceLabelPreview');
+                const previewPrice = document.getElementById('servicePricePreview');
+
+                if (!cardLeft || !previewLabel || !previewPrice) return;
+
+                cardLeft.innerHTML = data.renderLeft(devAddonActive, extraPagesCount);
+                previewLabel.textContent = data.previewLabel;
+
+                let finalPrice = data.basePrice;
+                if (currentTab === 'landing') {
+                    if (devAddonActive) {
+                        finalPrice += 1200;
+                    }
+                    finalPrice += (extraPagesCount * 300);
+                }
+                previewPrice.textContent = '₹' + finalPrice.toLocaleString('en-IN');
+
+                if (currentTab === 'landing') {
+                    const devToggle = document.getElementById('devToggleCheckbox');
+                    if (devToggle) {
+                        devToggle.addEventListener('change', function() {
+                            devAddonActive = this.checked;
+                            updateServiceCard();
+                        });
+                    }
+
+                    const pageMinus = document.getElementById('extraPageMinusBtn');
+                    const pagePlus = document.getElementById('extraPagePlusBtn');
+
+                    if (pageMinus) {
+                        pageMinus.addEventListener('click', function() {
+                            if (extraPagesCount > 0) {
+                                extraPagesCount--;
+                                updateServiceCard();
+                            }
+                        });
+                    }
+
+                    if (pagePlus) {
+                        pagePlus.addEventListener('click', function() {
+                            if (extraPagesCount < 20) {
+                                extraPagesCount++;
+                                updateServiceCard();
+                            }
+                        });
+                    }
+                }
+            }
+
+            const tabBtns = document.querySelectorAll('.kree-tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentTab = this.dataset.tab;
+                    updateServiceCard();
+                });
+            });
+
+            // Initial load
+            updateServiceCard();
+
+            // Retainer Stepper (Easy Pricing for Landing)
+            let activeTasks = 1;
+            const taskCountVal = document.getElementById('taskCountVal');
+            const taskCountLabel = document.getElementById('taskCountLabel');
+            const retainerPriceVal = document.getElementById('retainerPriceVal');
+            const minusBtn = document.getElementById('taskMinusBtn');
+            const plusBtn = document.getElementById('taskPlusBtn');
+
+            function updateRetainer() {
+                if (taskCountVal) taskCountVal.textContent = activeTasks;
+                if (taskCountLabel) taskCountLabel.textContent = activeTasks > 1 ? 'Active Tasks' : 'Active Task';
+                if (retainerPriceVal) {
+                    const price = activeTasks === 1 ? 9999 : (9999 + (activeTasks - 1) * 7500);
+                    retainerPriceVal.textContent = '₹' + price.toLocaleString('en-IN') + '/mo';
+                }
+            }
+
+            if (minusBtn) {
+                minusBtn.addEventListener('click', function() {
+                    if (activeTasks > 1) {
+                        activeTasks--;
+                        updateRetainer();
+                    }
+                });
+            }
+            if (plusBtn) {
+                plusBtn.addEventListener('click', function() {
+                    if (activeTasks < 3) {
+                        activeTasks++;
+                        updateRetainer();
+                    }
+                });
+            }
+            // Hero Showreel Controls
+            const heroPlayBtn = document.getElementById('heroPlayBtn');
+            const heroMuteToggle = document.getElementById('heroMuteToggle');
+            const heroFullscreenToggle = document.getElementById('heroFullscreenToggle');
+
+            if (heroPlayBtn) {
+                heroPlayBtn.addEventListener('click', function() {
+                    this.style.transform = 'translate(-50%, -50%) scale(0.92)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            }
+
+            if (heroMuteToggle) {
+                let isMuted = true;
+                heroMuteToggle.addEventListener('click', function() {
+                    isMuted = !isMuted;
+                    const span = this.querySelector('span');
+                    if (span) span.textContent = isMuted ? 'Mute' : 'Sound On';
+                });
+            }
+
+            if (heroFullscreenToggle) {
+                heroFullscreenToggle.addEventListener('click', function() {
+                    const card = document.querySelector('.hero-showcase-card');
+                    if (card && document.fullscreenElement) {
+                        document.exitFullscreen().catch(() => {});
+                    } else if (card) {
+                        card.requestFullscreen().catch(() => {});
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
