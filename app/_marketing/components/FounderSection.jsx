@@ -134,7 +134,7 @@ export function SiteFooter() {
     <footer className="footer-section">
       {" "}
       <p>
-        {"Nectar © 2024 [8bitbrains] — App & Website Agency"}
+        {"© 2026 8bitbrains | All rights reserved"}
       </p>
       {" "}
       <div style={{"display":"flex","gap":"16px","justifyContent":"center","marginTop":"12px"}}>

@@ -12,7 +12,7 @@ export default function MarketingNavigation({ account }) {
         </span>
       </a>
       {" "}
-      <AccountMenu account={account} />
+      <AccountMenu account={account} includeSiteNavigation />
       {" "}
     </div>
     <aside className="sidebar">
@@ -60,7 +60,7 @@ export default function MarketingNavigation({ account }) {
             {" "}
           </a>
           {" "}
-          <a href="#projects" className="nav-link">
+          <a href="/projects/mobile-apps" className="nav-link">
             {" "}
             <div className="nav-link-left">
               {" "}
@@ -86,7 +86,7 @@ export default function MarketingNavigation({ account }) {
             {" "}
           </a>
           {" "}
-          <a href="#services" className="nav-link">
+          <a href="/signup" className="nav-link">
             {" "}
             <div className="nav-link-left">
               {" "}
@@ -103,7 +103,7 @@ export default function MarketingNavigation({ account }) {
               </span>
               {" "}
               <span>
-                {"Playground"}
+                {"My Project"}
               </span>
               {" "}
             </div>

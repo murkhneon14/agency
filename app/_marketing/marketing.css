@@ -906,6 +906,9 @@
         }
 
         @media (max-width: 768px) {
+            .marketing-site .polaroids-collage > .polaroid-card:nth-child(n + 4) {
+                display: none;
+            }
             .marketing-site .polaroids-collage {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
@@ -1695,12 +1698,21 @@
         }
 
         @media (max-width: 768px) {
+            .marketing-site {
+                flex-direction: column;
+                width: 100%;
+                min-width: 0;
+            }
+
             .marketing-site .sidebar {
                 display: none;
             }
 
             .marketing-site .mobile-header {
                 display: flex;
+                width: 100%;
+                flex: 0 0 auto;
+                box-sizing: border-box;
                 align-items: center;
                 justify-content: space-between;
                 padding: 16px 20px;
@@ -1711,6 +1723,9 @@
             }
 
             .marketing-site .main-content {
+                width: 100%;
+                min-width: 0;
+                flex: 1 1 auto;
                 margin-left: 0;
                 padding: 10px;
             }
@@ -1789,7 +1804,60 @@
 .marketing-site .account-menu-heading span { overflow: hidden; color: #718697; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
 .marketing-site .account-menu-action { display: flex; align-items: center; min-height: 40px; padding: 9px 12px; border: 0; border-radius: 999px; color: #456176; background: transparent; font: 500 14px/1.3 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; text-align: left; text-decoration: none; cursor: pointer; }
 .marketing-site .account-menu-action:hover, .marketing-site .account-menu-action:focus-visible { color: #304F67; background: #ffffff; }
+.marketing-site .account-menu-action--active { justify-content: space-between; border: 1px solid rgba(255, 255, 255, 0.7); background: #FAF8F2; color: #304F67; font-weight: 600; box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16), inset 0px 7px 32px rgb(255, 255, 255); }
+.marketing-site .account-menu-active-arrow { color: #91A4B0; opacity: 0.42; }
 .marketing-site .account-menu-action--button { width: 100%; }
 .marketing-site .account-menu-action:disabled { cursor: wait; opacity: 0.7; }
 .marketing-site .account-menu-error { margin: 2px 8px 6px; color: #a33b30; font-size: 12px; line-height: 1.4; }
     
+
+.marketing-site .account-menu-site-nav {
+  display: grid;
+  gap: 3px;
+  padding-bottom: 8px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #d6dce1;
+}
+.marketing-site .account-menu-panel--site {
+  width: min(304px, calc(100vw - 32px));
+  max-height: min(680px, calc(100dvh - 96px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.marketing-site .account-menu-site-contact {
+  display: grid;
+  gap: 2px;
+  padding-top: 8px;
+  border-top: 1px solid #d6dce1;
+}
+.marketing-site .account-menu-section-label {
+  padding: 7px 12px 3px;
+  color: #91a4b0;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.marketing-site .account-menu-action--disabled {
+  justify-content: space-between;
+  cursor: default;
+  opacity: .68;
+}
+.marketing-site .account-menu-coming-soon {
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #718697;
+  background: #ecebdc;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .marketing-site .hero-container { padding-right: 18px; padding-left: 18px; }
+  .marketing-site .hero-tag { display: block; max-width: 100%; font-size: 10px; line-height: 1.5; letter-spacing: .055em; }
+  .marketing-site .hero-buttons { gap: 8px; margin-bottom: 24px; }
+  .marketing-site .hero-pill-btn { gap: 6px; padding: 11px 14px; font-size: 13px; }
+  .marketing-site .fragment-row { align-items: flex-start; gap: 6px; }
+  .marketing-site .fragment-letters { gap: 2px; flex-wrap: nowrap; }
+  .marketing-site .frag-letter { width: 17px; height: 24px; flex: 0 0 17px; border-radius: 5px; font-size: 10px; }
+}

@@ -18,17 +18,30 @@ export default function StoryOpening() {
           {", A feeling that this could become something real"}
           <span className="store-badges">
             <span className="store-badge app-store-badge" title="App Store">
-              <svg viewBox="0 0 32 30" width="32" height="30" fill="none">
-                <rect width="32" height="30" rx="7" fill="#1D9BF0"></rect>
-                <path d="M14.5 9.5l1.3-2.3c.3-.5 1-.7 1.5-.4.5.3.7 1 .4 1.5l-1.3 2.3m-1.9 1.1L10 19.3c-.3.5-.1 1.2.4 1.5.5.3 1.2.1 1.5-.4l4.2-7.5m-1.2 5.9h7.3c.6 0 1.1.5 1.1 1.1s-.5 1.1-1.1 1.1H11c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1h3.8" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"></path>
+              <svg viewBox="0 0 32 32" width="32" height="32" fill="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="app-store-icon-gradient" x1="16" y1="0" x2="16" y2="32" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#16C8F5"></stop>
+                    <stop offset="1" stopColor="#0865F5"></stop>
+                  </linearGradient>
+                </defs>
+                <rect width="32" height="32" rx="7" fill="url(#app-store-icon-gradient)"></rect>
+                <path d="m11 22 9.8-16M15.2 6l9.8 16M8.8 17.7h15" stroke="#ffffff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"></path>
               </svg>
             </span>
             <span className="store-badge play-store-badge" title="Google Play Store">
-              <svg viewBox="0 0 28 28" width="26" height="26">
-                <path d="M6 5.2a1.3 1.3 0 00-.3 1v15.6c0 .4.1.8.3 1l9.1-9-9.1-8.6z" fill="#00C3FF"></path>
-                <path d="M19.3 18.4l-4.2-4.6-9.1 8.6c.4.4 1 .5 1.6.2l11.7-6.2z" fill="#FF334B"></path>
-                <path d="M15.1 13.8l4.2-4.6-11.7-6.2c-.6-.3-1.2-.2-1.6.2l9.1 10.6z" fill="#00E676"></path>
-                <path d="M22.5 13.3l-3.2-1.7-4.2 4.2 4.2 4.2 3.2-1.7c1-.5 1-1.4 0-1.9z" fill="#FFD400"></path>
+              <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+                <defs>
+                  <clipPath id="google-play-icon-shape">
+                    <path d="M5 2.7 28.8 14.9c1.5.8 1.5 1.5 0 2.3L5 29.3c-1.3.7-2.3 0-2.3-1.5V4.2C2.7 2.8 3.7 2 5 2.7Z"></path>
+                  </clipPath>
+                </defs>
+                <g clipPath="url(#google-play-icon-shape)">
+                  <path d="M2.7 1.5 17 16 2.7 30.5Z" fill="#00C8FF"></path>
+                  <path d="M2.7 1.5 24.5 11.8 17 16Z" fill="#00D76F"></path>
+                  <path d="M2.7 30.5 24.5 20.2 17 16Z" fill="#F8334A"></path>
+                  <path d="m17 16 7.5-4.2 6.8 3.3c1.4.7 1.4 2.1 0 2.8l-6.8 3.3Z" fill="#FFC629"></path>
+                </g>
               </svg>
             </span>
           </span>

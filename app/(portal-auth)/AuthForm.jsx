@@ -83,7 +83,7 @@ export default function AuthForm({ mode }) {
   return (
     <section className="auth-card" aria-labelledby="auth-heading">
       <a className="portal-brand" href="/" aria-label="8bitbrains home">
-        <span className="portal-brand-mark">8</span>
+        <img src="/logo1.png" alt="" />
         <span>8bitbrains</span>
       </a>
       <h1 id="auth-heading">{content.title}</h1>

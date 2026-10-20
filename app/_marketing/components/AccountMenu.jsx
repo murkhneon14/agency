@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import LogoutButton from "../../_portal/LogoutButton.jsx";
 
 const workspaceByRole = {
@@ -10,13 +11,27 @@ const workspaceByRole = {
   CLIENT: { href: "/dashboard", label: "Client portal" },
 };
 
-export default function AccountMenu({ account }) {
+export default function AccountMenu({ account, includeSiteNavigation = false }) {
   const [open, setOpen] = useState(false);
   const [logoutError, setLogoutError] = useState("");
   const panelId = useId();
   const menuRef = useRef(null);
   const triggerRef = useRef(null);
   const workspace = account ? workspaceByRole[account.role] : null;
+  const pathname = usePathname();
+  const activeSitePage = pathname?.startsWith("/projects")
+    ? "projects"
+    : ["/signup", "/login", "/dashboard"].includes(pathname)
+      ? "my-project"
+      : pathname === "/"
+        ? "home"
+        : "";
+  const siteNavigation = [
+    { label: "Home", href: "/", key: "home" },
+    { label: "Projects", href: "/projects/mobile-apps", key: "projects" },
+    { label: "My Project", href: "/signup", key: "my-project" },
+    { label: "Pricing", href: "/#pricing", key: "pricing" },
+  ];
 
   useEffect(() => {
     if (!open) return undefined;
@@ -59,7 +74,35 @@ export default function AccountMenu({ account }) {
       </button>
 
       {open && (
-        <div className="account-menu-panel" id={panelId} aria-label="Account options">
+        <div className={`account-menu-panel${includeSiteNavigation ? " account-menu-panel--site" : ""}`} id={panelId} aria-label="Account options">
+          {includeSiteNavigation && (
+            <>
+              <nav className="account-menu-site-nav" aria-label="Site navigation">
+                {siteNavigation.map(({ label, href, key }) => {
+                  const isActive = activeSitePage === key;
+                  return (
+                    <Link
+                      key={key}
+                      className={`account-menu-action${isActive ? " account-menu-action--active" : ""}`}
+                      href={href}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {label}
+                      {isActive && <span className="account-menu-active-arrow" aria-hidden="true">→</span>}
+                    </Link>
+                  );
+                })}
+                <span className="account-menu-action account-menu-action--disabled" aria-disabled="true">
+                  Career <span className="account-menu-coming-soon">Coming soon</span>
+                </span>
+              </nav>
+              <div className="account-menu-site-contact">
+                <p className="account-menu-section-label">Start Project</p>
+                <a className="account-menu-action" href="tel:8789053612">Start Project</a>
+                <a className="account-menu-action" href="https://wa.me/918789053612" target="_blank" rel="noreferrer">Send a Message</a>
+              </div>
+            </>
+          )}
           {account ? (
             <>
               <div className="account-menu-heading">

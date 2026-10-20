@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Sidebar from "../components/Sidebar.jsx";
 import LogoutButton from "./LogoutButton.jsx";
 
 export default function PortalShell({ user, profile, area = "client", children }) {
@@ -9,21 +10,20 @@ export default function PortalShell({ user, profile, area = "client", children }
       : [["Overview", "/dashboard"], ["My projects", "/dashboard/projects"], ["Project requests", "/dashboard/requests"], ["Proposals", "/dashboard/proposals"], ["Payments", "/dashboard/payments"], ["Invoices", "/dashboard/invoices"], ["Files", "/dashboard/files"], ["Notifications", "/dashboard/notifications"], ["Profile", "/dashboard/profile"]];
 
   return (
-    <div className="portal-shell">
-      <aside className="portal-sidebar">
-        <Link className="portal-brand" href="/"><span className="portal-brand-mark">8</span><span>8bitbrains</span></Link>
-        <div className="portal-sidebar-caption">{area === "admin" ? "WORKSPACE" : "CLIENT PORTAL"}</div>
-        <nav className="portal-navigation" aria-label="Portal navigation">
+    <div className="projects-page portal-app portal-site-frame portal-shell">
+      <Sidebar activeSection="playground" />
+      <div className="portal-content">
+        <header className="portal-topbar">
+          <div className="portal-topbar-title">
+            <span>{area === "admin" ? "Agency workspace" : area === "team" ? "Team workspace" : "My Project"}</span>
+            <small>{profile.full_name || user.email}</small>
+          </div>
+          <span className="portal-role-chip">{profile.role.replace("_", " ")}</span>
+          <LogoutButton />
+        </header>
+        <nav className="portal-navigation" aria-label="Workspace navigation">
           {links.map(([label, href]) => <Link className="portal-nav-link" href={href} key={href}>{label}</Link>)}
         </nav>
-        <div className="portal-sidebar-bottom">
-          <div className="portal-user-avatar">{(profile.full_name || user.email || "C").slice(0, 1).toUpperCase()}</div>
-          <div className="portal-user-copy"><strong>{profile.full_name || "Account"}</strong><small>{user.email}</small></div>
-          <LogoutButton />
-        </div>
-      </aside>
-      <div className="portal-content">
-        <header className="portal-topbar"><span>{area === "admin" ? "Agency workspace" : area === "team" ? "Team workspace" : "Client workspace"}</span><span className="portal-role-chip">{profile.role.replace("_", " ")}</span></header>
         <main className="portal-main">{children}</main>
       </div>
     </div>
