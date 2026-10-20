@@ -1,0 +1,244 @@
+import AccountMenu from "./AccountMenu.jsx";
+
+export default function MarketingNavigation({ account }) {
+  return (
+    <>
+    <div className="mobile-header">
+      {" "}
+      <a href="/" className="logo">
+        <img src="/logo1.png" alt="8bitbrains" />
+        <span>
+          {"8bitbrains"}
+        </span>
+      </a>
+      {" "}
+      <AccountMenu account={account} />
+      {" "}
+    </div>
+    <aside className="sidebar">
+      {" "}
+      <div className="sidebar-top">
+        {" "}
+        <div className="logo-row">
+          {" "}
+          <a href="/" className="logo">
+            <img src="/logo1.png" alt="8bitbrains" />
+            <span>
+              {"8bitbrains"}
+            </span>
+          </a>
+          {" "}
+          <AccountMenu account={account} />
+          {" "}
+        </div>
+        {" "}
+        <div className="divider"></div>
+        {" "}
+        <nav className="nav-links">
+          {" "}
+          <a href="#" className="nav-link active">
+            {" "}
+            <div className="nav-link-left">
+              {" "}
+              <span className="nav-icon">
+                <svg viewBox="0 0 20 20" fill="#304F67">
+                  {" "}
+                  <path d="M11.3 2.84a1.5 1.5 0 00-2.6 0L3.5 6.41A1.5 1.5 0 002.5 8.3v6.91c0 1.27 1.03 2.29 2.29 2.29h2.5a.63.63 0 00.63-.63v-2.91a2.08 2.08 0 014.16 0v2.91c0 .35.28.63.63.63h2.5a2.29 2.29 0 002.29-2.29V8.3a1.5 1.5 0 00-1-1.89L11.3 2.84z"></path>
+                  {" "}
+                </svg>
+              </span>
+              {" "}
+              <span>
+                {"Home"}
+              </span>
+              {" "}
+            </div>
+            {" "}
+            <span className="arrow-icon">
+              {"→"}
+            </span>
+            {" "}
+          </a>
+          {" "}
+          <a href="#projects" className="nav-link">
+            {" "}
+            <div className="nav-link-left">
+              {" "}
+              <span className="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="#456176" strokeWidth="1.5">
+                  {" "}
+                  <rect x="3" y="3" width="6" height="8" rx="1.5"></rect>
+                  {" "}
+                  <rect x="11" y="9" width="6" height="8" rx="1.5"></rect>
+                  {" "}
+                  <rect x="11" y="3" width="6" height="4" rx="1"></rect>
+                  {" "}
+                  <rect x="3" y="13" width="6" height="4" rx="1"></rect>
+                  {" "}
+                </svg>
+              </span>
+              {" "}
+              <span>
+                {"Projects"}
+              </span>
+              {" "}
+            </div>
+            {" "}
+          </a>
+          {" "}
+          <a href="#services" className="nav-link">
+            {" "}
+            <div className="nav-link-left">
+              {" "}
+              <span className="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="#456176" strokeWidth="1.5">
+                  {" "}
+                  <path d="M9.17 10.83h1.48c.66 0 1.3-.26 1.77-.73l3.84-3.85a1.77 1.77 0 00-2.5-2.5L9.9 7.6a2.08 2.08 0 00-.73 1.77v1.46z"></path>
+                  {" "}
+                  <path d="M10 17.5c-.42 0-2.55-.73-4.4-2.58-3.09-3.09-3.88-7.31-1.77-9.43 1.74-1.74 4.9-1.51 7.69.32"></path>
+                  {" "}
+                  <path d="M14.26 8.33c2.4 2.78 3.42 5.61 1.58 7.08-1.38 1.11-3.13-.17-4.15-1.16"></path>
+                  {" "}
+                </svg>
+              </span>
+              {" "}
+              <span>
+                {"Playground"}
+              </span>
+              {" "}
+            </div>
+            {" "}
+          </a>
+          {" "}
+          <a href="#pricing" className="nav-link">
+            {" "}
+            <div className="nav-link-left">
+              {" "}
+              <span className="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="#456176" strokeWidth="1.5">
+                  {" "}
+                  <circle cx="10" cy="10" r="7.5"></circle>
+                  {" "}
+                  <path d="M10 6.15v-.86M10 13.85v.86M11.85 7.43a2.1 2.1 0 00-1.85-.86h-.24c-1.05 0-1.9.68-1.9 1.52v.07c0 .6.43 1.15 1.1 1.42l2.08.84c.67.27 1.1.82 1.1 1.42 0 .88-.89 1.59-1.99 1.59H10a2.1 2.1 0 01-1.85-.86"></path>
+                  {" "}
+                </svg>
+              </span>
+              {" "}
+              <span>
+                {"Pricing"}
+              </span>
+              {" "}
+            </div>
+            {" "}
+          </a>
+          {" "}
+          <a href="#" className="nav-link" style={{"opacity":"0.7","cursor":"not-allowed"}}>
+            {" "}
+            <div className="nav-link-left">
+              {" "}
+              <span className="nav-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="#456176" strokeWidth="1.5">
+                  {" "}
+                  <rect x="2.29" y="6.46" width="15.42" height="10.42" rx="1.67"></rect>
+                  {" "}
+                  <path d="M2.29 10.63h15.42M10 10.63v2.08"></path>
+                  {" "}
+                  <path d="M6.67 6.46V4.79a1.67 1.67 0 011.67-1.67h3.33a1.67 1.67 0 011.67 1.67v1.67"></path>
+                  {" "}
+                </svg>
+              </span>
+              {" "}
+              <span>
+                {"Career"}
+              </span>
+              {" "}
+            </div>
+            {" "}
+            <span className="nav-badge">
+              {"Coming soon"}
+            </span>
+            {" "}
+          </a>
+          {" "}
+        </nav>
+        {" "}
+        <div className="nav-section-title">
+          {"Start Project"}
+        </div>
+        {" "}
+        <div className="nav-actions">
+          {" "}
+          <a href="mailto:nectarsof@gmail.com" className="nav-action">
+            {" "}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{"flexShrink":"0"}}>
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>
+            {" "}
+            <span>
+              {"Start Project"}
+            </span>
+            {" "}
+          </a>
+          {" "}
+          <a href="mailto:nectarsof@gmail.com" className="nav-action">
+            {" "}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{"flexShrink":"0"}}>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            {" "}
+            <span>
+              {"Send a Message"}
+            </span>
+            {" "}
+          </a>
+          {" "}
+        </div>
+        {" "}
+      </div>
+      {" "}
+      <div className="sidebar-brands">
+        {" "}
+        <span className="brands-title">
+          {"Worked with "}
+          <b>
+            {"10+ Brands"}
+          </b>
+        </span>
+        {" "}
+        <div className="brands-grid">
+          {" "}
+          <span className="brand-tag">
+            {"✦ StartupX"}
+          </span>
+          {" "}
+          <span className="brand-tag">
+            {"✦ PixelForge"}
+          </span>
+          {" "}
+          <span className="brand-tag">
+            {"✦ CodeNest"}
+          </span>
+          {" "}
+          <span className="brand-tag">
+            {"✦ AppVault"}
+          </span>
+          {" "}
+          <span className="brand-tag">
+            {"✦ DigiCraft"}
+          </span>
+          {" "}
+          <span className="brand-tag">
+            {"✦ ByteWorks"}
+          </span>
+          {" "}
+        </div>
+        {" "}
+      </div>
+      {" "}
+    </aside>
+    </>
+  );
+}

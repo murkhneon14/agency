@@ -1,0 +1,1795 @@
+
+        .marketing-site *, .marketing-site *::before, .marketing-site *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .marketing-site {
+            scroll-behavior: smooth;
+        }
+
+        .marketing-site {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f5f5dc;
+            color: #304F67;
+            min-height: 100vh;
+            display: flex;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .marketing-site .sidebar {
+            width: 320px;
+            min-width: 320px;
+            height: 100vh;
+            padding: 24px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(270deg, rgba(245, 245, 220, 0) 0%, #f5f5dc 60%);
+        }
+
+        .marketing-site .sidebar-top {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .marketing-site .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .marketing-site .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .marketing-site .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .marketing-site .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(48, 79, 104, 0.12);
+            object-fit: cover;
+        }
+
+        .marketing-site .logo span {
+            font-size: 23px;
+            font-weight: 800;
+            color: #304F67;
+            letter-spacing: -0.03em;
+        }
+
+        .marketing-site .menu-dots {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .marketing-site .menu-dots:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .marketing-site .menu-dots span {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .marketing-site .menu-dots span i {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #304F67;
+            display: block;
+        }
+
+        .marketing-site .divider {
+            height: 1px;
+            background: #D6DCE1;
+            position: relative;
+        }
+
+        .marketing-site .divider::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .marketing-site .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .marketing-site .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #456176;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .marketing-site .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .marketing-site .nav-link.active {
+            background: #FAF8F2;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16), inset 0px 7px 32px rgb(255, 255, 255);
+        }
+
+        .marketing-site .nav-link .nav-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
+            display: inline-flex;
+        }
+
+        .marketing-site .nav-link .nav-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .marketing-site .nav-link .arrow-icon {
+            opacity: 0.2;
+        }
+
+        .marketing-site .nav-link-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .marketing-site .nav-badge {
+            background: #E6E0CE;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #456176;
+        }
+
+        .marketing-site .nav-section-title {
+            text-transform: uppercase;
+            color: rgba(48, 79, 104, 0.4);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 0 20px;
+            margin-top: 10px;
+        }
+
+        .marketing-site .nav-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 0;
+            text-decoration: none;
+            color: #456176;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .marketing-site .nav-action:hover {
+            opacity: 0.7;
+        }
+
+        .marketing-site .nav-actions {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .marketing-site .sidebar-brands {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .marketing-site .brands-title {
+            text-transform: uppercase;
+            color: rgba(48, 79, 104, 0.4);
+            font-weight: 700;
+            font-size: 13px;
+            padding-left: 20px;
+        }
+
+        .marketing-site .brands-title b {
+            color: #456176;
+            font-weight: 700;
+        }
+
+        .marketing-site .brands-grid {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 8px;
+            gap: 4px;
+        }
+
+        .marketing-site .brand-tag {
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #456176;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .marketing-site .brand-tag:hover {
+            opacity: 0.6;
+        }
+
+        /* ===== MAIN ===== */
+        .marketing-site .main-content {
+            flex: 1;
+            margin-left: 320px;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .marketing-site .content-card {
+            width: 100%;
+            max-width: 1100px;
+            background: #FAF8F2;
+            border-radius: 29px;
+            box-shadow: 0px 1.67px 4.18px rgba(183, 181, 203, 0.25), 0px 8.37px 8.37px rgba(183, 181, 203, 0.2), 0px 17.57px 10.88px rgba(183, 181, 203, 0.12), 0px 31.8px 12.55px rgba(183, 181, 203, 0.05), 0px 50.21px 14.23px rgba(183, 181, 203, 0.01);
+            padding: 60px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marketing-site .content-inner {
+            max-width: 660px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        /* ===== MODERN HERO (SS1 DESIGN) ===== */
+        .marketing-site .hero-container {
+            width: 100%;
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .marketing-site .hero-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7A93A6;
+            margin-bottom: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .marketing-site .hero-tag b {
+            color: #233F53;
+            font-weight: 800;
+        }
+
+        .marketing-site .hero-modern-title {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+            color: #233F53;
+            margin-bottom: 28px;
+            text-align: left;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .marketing-site .hero-logo-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: #FFD43F;
+            box-shadow: 0 4px 14px rgba(255, 193, 7, 0.35);
+            vertical-align: -8px;
+            margin: 0 6px 0 4px;
+            overflow: hidden;
+            transition: transform 0.25s ease;
+        }
+
+        .marketing-site .hero-logo-badge:hover {
+            transform: scale(1.08) rotate(-3deg);
+        }
+
+        .marketing-site .hero-logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+        }
+
+        .marketing-site .hero-modern-title .muted-text {
+            color: #8C9EA8;
+            font-weight: 600;
+        }
+
+        .marketing-site .hero-modern-title .hero-brand-title {
+            color: #233F53;
+            font-weight: 700;
+        }
+
+        .marketing-site .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+
+        .marketing-site .hero-pill-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: 9999px;
+            background: #ffffff;
+            color: #233F53;
+            font-size: 14.5px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(35, 55, 75, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.22s ease;
+            cursor: pointer;
+        }
+
+        .marketing-site .hero-pill-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(35, 55, 75, 0.1);
+            color: #1a3142;
+        }
+
+        /* ===== SHOWCASE VIDEO PLAYER CARD ===== */
+        .marketing-site .hero-showcase-card {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 12px 12px 14px 12px;
+            box-shadow: 0 16px 44px rgba(35, 55, 75, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .marketing-site .hero-video-viewport {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #6EC5FF 0%, #9BD8FF 35%, #D4F0FF 65%, #EBF8FF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .marketing-site .hero-showcase-hill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            object-position: center top;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .marketing-site .hero-watermark-wrap {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            pointer-events: none;
+            z-index: 2;
+            width: 90%;
+        }
+
+        .marketing-site .hero-watermark-logo {
+            width: 68px;
+            height: 68px;
+            border-radius: 16px;
+            opacity: 0.85;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            object-fit: cover;
+        }
+
+        .marketing-site .hero-watermark-text {
+            font-size: 68px;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: rgba(255, 255, 255, 0.92);
+            text-shadow: 0 4px 24px rgba(35, 55, 75, 0.15);
+            font-family: 'Inter', -apple-system, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .marketing-site .hero-play-button {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.42);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2.5px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 10px 32px rgba(35, 55, 75, 0.18), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            z-index: 4;
+        }
+
+        .marketing-site .hero-play-button:hover {
+            transform: translate(-50%, -50%) scale(1.08);
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 14px 40px rgba(35, 55, 75, 0.22);
+        }
+
+        .marketing-site .hero-play-button svg {
+            margin-left: 4px;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Bottom Controls Bar */
+        .marketing-site .hero-controls-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8px 4px 8px;
+            width: 100%;
+        }
+
+        .marketing-site .hero-controls-left, .marketing-site .hero-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .marketing-site .hero-ctrl-icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #F4F7F9;
+            border: 1px solid #E6ECEF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #233F53;
+            transition: all 0.2s ease;
+        }
+
+        .marketing-site .hero-ctrl-icon-btn:hover {
+            background: #EAF0F4;
+            transform: scale(1.05);
+        }
+
+        .marketing-site .hero-ctrl-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            background: #F4F7F9;
+            border: 1px solid #E6ECEF;
+            font-size: 13px;
+            font-weight: 600;
+            color: #233F53;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .marketing-site .hero-ctrl-pill:hover {
+            background: #EAF0F4;
+            transform: translateY(-1px);
+        }
+
+        .marketing-site .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #304F67;
+            text-decoration: none;
+            background: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16), inset 0px 7px 32px rgb(255, 255, 255);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .marketing-site .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.12), 0px 17.57px 10.88px rgba(181, 187, 203, 0.05), inset 0px 7px 32px rgb(255, 255, 255);
+        }
+
+        .marketing-site .btn-dark {
+            background: #304F67;
+            color: #fff;
+            border: 1px solid #304F67;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        .marketing-site .btn-dark:hover {
+            background: #3d6280;
+        }
+
+        /* ===== DIVIDERS ===== */
+        .marketing-site .section-divider {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            margin: 60px auto;
+        }
+
+        .marketing-site .section-divider .line {
+            flex: 1;
+            height: 1px;
+            background: #D6DCE1;
+            position: relative;
+        }
+
+        .marketing-site .section-divider .line::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .marketing-site .section-divider .label {
+            text-transform: uppercase;
+            color: #A0AFBB;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: -0.01em;
+            padding: 0 16px;
+            white-space: nowrap;
+        }
+
+        /* ===== STORY ===== */
+        .marketing-site .story-section {
+            max-width: 660px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .marketing-site .story-text {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: -0.018em;
+            color: #304F67;
+            margin-bottom: 24px;
+        }
+
+        .marketing-site .sketch-text {
+            font-family: 'Caveat', cursive;
+            font-size: 34px;
+            font-weight: 700;
+            color: #2b4961;
+            letter-spacing: -0.01em;
+            display: inline-block;
+            transform: rotate(-1.5deg);
+            line-height: 0.9;
+            vertical-align: -2px;
+            margin: 0 4px;
+        }
+
+        .marketing-site .store-badges {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .marketing-site .store-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center center;
+        }
+
+        .marketing-site .app-store-badge {
+            width: 32px;
+            height: 30px;
+            border-radius: 7px;
+            overflow: hidden;
+            display: inline-flex;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        .marketing-site .play-store-badge {
+            width: 32px;
+            height: 30px;
+            background: #ffffff;
+            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        .marketing-site .store-badge:hover {
+            transform: translateY(-6px) rotate(-8.8deg) !important;
+        }
+
+        .marketing-site .highlighter-green {
+            position: relative;
+            display: inline-block;
+            padding: 0 6px;
+            z-index: 1;
+        }
+
+        .marketing-site .highlighter-green::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -6px;
+            right: -6px;
+            bottom: 0px;
+            background: #B4F56E;
+            opacity: 0.88;
+            border-radius: 4px;
+            transform: rotate(-0.9deg);
+            z-index: -1;
+            box-shadow: 0 1px 4px rgba(180, 245, 110, 0.25);
+        }
+
+        .marketing-site .highlighter-green-one {
+            position: relative;
+            display: inline-block;
+            padding: 0 6px;
+            z-index: 1;
+        }
+
+        .marketing-site .highlighter-green-one::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: -4px;
+            right: -4px;
+            bottom: -1px;
+            background: #B4F56E;
+            opacity: 0.88;
+            border-radius: 4px;
+            transform: rotate(-0.5deg);
+            z-index: -1;
+        }
+
+        /* ===== FRAGMENTATION ===== */
+        .marketing-site .fragment-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .marketing-site .fragment-row .text {
+            font-size: 22px;
+            font-weight: 500;
+            color: #304F67;
+        }
+
+        .marketing-site .fragment-letters {
+            display: flex;
+            gap: 6px;
+        }
+
+        .marketing-site .frag-letter {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #14334D;
+            box-shadow: 0px 1.1px 2.75px rgba(181, 187, 203, 0.31), 0px 11.54px 7.15px rgba(181, 187, 203, 0.16);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .marketing-site .frag-letter:nth-child(1) {
+            transform: rotate(-7deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(2) {
+            transform: rotate(-7deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(3) {
+            transform: rotate(-12deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(4) {
+            transform: rotate(7deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(5) {
+            transform: rotate(-14deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(6) {
+            transform: rotate(4deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(7) {
+            transform: rotate(-6deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(8) {
+            transform: rotate(4deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(9) {
+            transform: rotate(-18deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(10) {
+            transform: rotate(4deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(11) {
+            transform: rotate(-30deg);
+        }
+
+        .marketing-site .frag-letter:nth-child(12) {
+            transform: rotate(21deg);
+        }
+
+        .marketing-site .frag-letter:hover {
+            transform: translateY(-6px) rotate(8.8deg) !important;
+        }
+
+        /* ===== WHAT'S THE SOLUTION (COLLAGE) ===== */
+        .marketing-site .built-headline {
+            font-size: 28px;
+            font-weight: 600;
+            color: #304F67;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .marketing-site .built-headline .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .marketing-site .built-headline .logo-badge img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+
+        .marketing-site .polaroids-collage {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr 1.15fr;
+            gap: 22px 20px;
+            max-width: 780px;
+            margin: 28px auto 44px auto;
+            position: relative;
+        }
+
+        .marketing-site .polaroid-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 8px 8px 12px 8px;
+            box-shadow: 0px 4px 14px rgba(48, 79, 104, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .marketing-site .polaroid-card:hover {
+            transform: translateY(-8px) scale(1.03) !important;
+            box-shadow: 0px 16px 32px rgba(48, 79, 104, 0.18), 0px 4px 10px rgba(0, 0, 0, 0.08);
+            z-index: 30;
+        }
+
+        .marketing-site .polaroid-img-wrap {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f0f2f5;
+        }
+
+        .marketing-site .polaroid-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .marketing-site .polaroid-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 21px;
+            font-weight: 700;
+            color: #304F67;
+            text-align: center;
+            margin-top: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .marketing-site .agency-muted-line {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #A0AFBB;
+            letter-spacing: -0.018em;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .marketing-site .polaroids-collage {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .marketing-site .polaroids-collage {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+            }
+        }
+
+        .marketing-site .built-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .marketing-site .built-row .text {
+            font-size: 22px;
+            font-weight: 500;
+            color: #304F67;
+        }
+
+        .marketing-site .built-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .marketing-site .built-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+
+        .marketing-site .built-logo span {
+            font-size: 22px;
+            font-weight: 700;
+            color: #304F67;
+        }
+
+        .marketing-site .red-highlight {
+            color: #E35C5C;
+            font-weight: 600;
+        }
+
+        .marketing-site .about-tag {
+            text-transform: uppercase;
+            color: rgba(48, 79, 104, 0.4);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+            margin-bottom: 24px;
+        }
+
+        .marketing-site .versatility-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #304F67;
+            margin: 16px 0;
+            box-shadow: 0px 1.67px 4.18px rgba(181, 186, 203, 0.31), 0px 17.57px 10.88px rgba(181, 187, 203, 0.16);
+        }
+
+        /* ===== PROJECT CATEGORIES ===== */
+        .marketing-site .project-cats {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .marketing-site .project-cat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #456176;
+            font-size: 13px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .marketing-site .project-cat:hover {
+            opacity: 0.7;
+        }
+
+        .marketing-site .project-cat .cat-icon {
+            font-size: 24px;
+        }
+
+        /* ===== KREE8-STYLE PRICING SECTION ===== */
+        .marketing-site .pricing-outer-frame {
+            background: #EEF2F6;
+            background: radial-gradient(circle at 10% 90%, rgba(162, 246, 219, 0.45) 0%, transparent 45%), 
+                        radial-gradient(circle at 90% 90%, rgba(188, 255, 140, 0.4) 0%, transparent 40%), 
+                        #EDF2F7;
+            border-radius: 36px;
+            padding: 44px 38px 48px;
+            margin-top: 28px;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 10px 30px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .marketing-site .pricing-tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .marketing-site .kree-tab-btn {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            color: #4A6578;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .marketing-site .kree-tab-btn:hover {
+            color: #1F364A;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .marketing-site .kree-tab-btn.active {
+            background: #FFFFFF;
+            color: #1E374B;
+            font-weight: 600;
+            box-shadow: 0 4px 18px rgba(32, 56, 76, 0.08);
+        }
+
+        .marketing-site .kree-pricing-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            padding: 38px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 24px rgba(35, 55, 75, 0.04);
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 40px;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .marketing-site .kree-card-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .marketing-site .kree-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .marketing-site .kree-card-title {
+            font-size: 21px;
+            font-weight: 800;
+            color: #1F384C;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .marketing-site .kree-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #FFFFFF;
+            border: 1px solid #DFE5EA;
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #607B8F;
+            line-height: 1.2;
+        }
+
+        .marketing-site .kree-addon-box {
+            background: #F4F7FA;
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .marketing-site .kree-addon-box.highlighted {
+            background: #EBF5FF;
+            border-color: #BAE0FD;
+        }
+
+        .marketing-site .kree-addon-row-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marketing-site .kree-addon-label-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #243D50;
+        }
+
+        .marketing-site .kree-tech-badges {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .marketing-site .kree-tech-badge {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .marketing-site .tech-next {
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .marketing-site .tech-webflow {
+            background: #146EF5;
+            border-radius: 5px;
+        }
+
+        .marketing-site .tech-framer {
+            background: #0055FF;
+            border-radius: 5px;
+        }
+
+        /* iOS style toggle switch */
+        .marketing-site .kree-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .marketing-site .kree-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .marketing-site .kree-toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #D3DBE2;
+            transition: 0.25s;
+            border-radius: 24px;
+        }
+
+        .marketing-site .kree-toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.25s;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .marketing-site .kree-toggle-switch input:checked + .kree-toggle-slider {
+            background-color: #1E88E5;
+        }
+
+        .marketing-site .kree-toggle-switch input:checked + .kree-toggle-slider:before {
+            transform: translateX(20px);
+        }
+
+        .marketing-site .kree-addon-price-sub {
+            font-size: 13px;
+            font-weight: 700;
+            color: #5C768A;
+            margin-top: 4px;
+        }
+
+        .marketing-site .kree-feature-row {
+            background: #F4F7FA;
+            border-radius: 14px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .marketing-site .kree-feature-title {
+            color: #243D50;
+            font-weight: 600;
+        }
+
+        .marketing-site .kree-feature-rate {
+            color: #506C80;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Check list */
+        .marketing-site .kree-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .marketing-site .kree-check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4A6578;
+        }
+
+        .marketing-site .kree-check-icon {
+            color: #8CA0AE;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        /* Stepper pill */
+        .marketing-site .kree-stepper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .marketing-site .kree-stepper-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #89EA1B;
+            border-radius: 9999px;
+            padding: 3px 8px;
+            box-shadow: 0 2px 6px rgba(137, 234, 27, 0.35);
+        }
+
+        .marketing-site .kree-stepper-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: none;
+            color: #285400;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s ease, background-color 0.2s;
+            line-height: 1;
+        }
+
+        .marketing-site .kree-stepper-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .marketing-site .kree-stepper-btn:active {
+            transform: scale(0.95);
+        }
+
+        .marketing-site .kree-stepper-val {
+            font-size: 15px;
+            font-weight: 800;
+            color: #1F4500;
+            min-width: 12px;
+            text-align: center;
+        }
+
+        .marketing-site .kree-stepper-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #243D50;
+        }
+
+        .marketing-site .kree-stepper-pill.blue-stepper {
+            background: #E0F2FE;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+        }
+
+        .marketing-site .kree-stepper-pill.blue-stepper .kree-stepper-btn {
+            color: #0284C7;
+            background: #FFFFFF;
+        }
+
+        .marketing-site .kree-stepper-pill.blue-stepper .kree-stepper-val {
+            color: #0369A1;
+        }
+
+        .marketing-site .kree-appstore-banner {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border: 1px solid #BAE6FD;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #0369A1;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .marketing-site .kree-appstore-banner b {
+            color: #0C4A6E;
+            font-weight: 700;
+        }
+
+        /* Service tags */
+        .marketing-site .kree-tags-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .marketing-site .kree-tag-item {
+            background: #F4F7FA;
+            border: 1px solid #E6ECF0;
+            border-radius: 9999px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #405C72;
+        }
+
+        /* Right column & gradient preview card */
+        .marketing-site .kree-card-right {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .marketing-site .kree-gradient-card {
+            border-radius: 24px;
+            padding: 28px 24px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .marketing-site .kree-gradient-card.blue-card {
+            background: linear-gradient(135deg, #7CD3FF 0%, #46A8FF 100%);
+            box-shadow: 0 14px 30px rgba(70, 168, 255, 0.32);
+        }
+
+        .marketing-site .kree-gradient-card.green-card {
+            background: linear-gradient(135deg, #A4F91D 0%, #76E304 100%);
+            box-shadow: 0 14px 30px rgba(118, 227, 4, 0.35);
+        }
+
+        .marketing-site .kree-card-watermark {
+            position: absolute;
+            right: -10px;
+            bottom: -20px;
+            width: 170px;
+            height: 170px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .marketing-site .kree-watermark-logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .marketing-site .blue-card .kree-watermark-logo {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .marketing-site .green-card .kree-watermark-logo {
+            color: rgba(0, 0, 0, 0.16);
+        }
+
+        .marketing-site .kree-card-details {
+            margin-top: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .marketing-site .kree-card-service-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .marketing-site .blue-card .kree-card-service-label {
+            color: #165688;
+        }
+
+        .marketing-site .green-card .kree-card-service-label {
+            color: #276203;
+        }
+
+        .marketing-site .kree-card-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .marketing-site .kree-card-price-value {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .marketing-site .blue-card .kree-card-price-value {
+            color: #0C4877;
+        }
+
+        .marketing-site .green-card .kree-card-price-value {
+            color: #194C00;
+        }
+
+        .marketing-site .kree-card-price-period {
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .marketing-site .blue-card .kree-card-price-period {
+            color: #165688;
+        }
+
+        .marketing-site .green-card .kree-card-price-period {
+            color: #276203;
+        }
+
+        /* Buttons under gradient card */
+        .marketing-site .kree-btn-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .marketing-site .kree-btn-start {
+            flex: 1;
+            background: #FFFFFF;
+            color: #213B4E;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 9999px;
+            padding: 12px 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .marketing-site .kree-btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+        }
+
+        .marketing-site .kree-btn-message {
+            flex: 1;
+            background: #274052;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 9999px;
+            padding: 12px 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(39, 64, 82, 0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .marketing-site .kree-btn-message:hover {
+            background: #1F3342;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(39, 64, 82, 0.32);
+        }
+
+        .marketing-site .kree-divider-sep {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.06);
+            margin: 28px 0;
+            border: none;
+        }
+
+        /* ===== KREE8-STYLE FOUNDER FOOTER ===== */
+        .marketing-site .founder-footer-section {
+            width: 100%;
+            margin-top: 60px;
+            position: relative;
+            padding-bottom: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .marketing-site .founder-footer-content {
+            max-width: 660px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: left;
+            position: relative;
+            z-index: 5;
+        }
+
+        .marketing-site .footer-lines-group {
+            margin-bottom: 30px;
+        }
+
+        .marketing-site .footer-story-text {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.55;
+            color: #274052;
+            letter-spacing: -0.015em;
+            margin-bottom: 2px;
+        }
+
+        .marketing-site .footer-dot {
+            font-size: 26px;
+            line-height: 1;
+            color: #274052;
+            margin: 2px 0;
+            font-weight: 700;
+        }
+
+        .marketing-site .footer-founder-block {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 24px;
+            margin-bottom: 34px;
+        }
+
+        .marketing-site .founder-signature-wrap {
+            margin-bottom: 4px;
+        }
+
+        .marketing-site .founder-name-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #243E51;
+            margin-top: 4px;
+        }
+
+        .marketing-site .founder-title-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #728A9B;
+            margin-top: 2px;
+        }
+
+        .marketing-site .footer-actions-row {
+            display: flex;
+            justify-content: flex-start;
+            gap: 14px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .marketing-site .footer-pill-btn {
+            background: #FFFFFF;
+            color: #233C4E;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 12px 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.22s ease;
+        }
+
+        .marketing-site .footer-pill-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+        }
+
+        .marketing-site .footer-grassy-container {
+            width: 100%;
+            margin: 10px 0 0 0;
+            padding: 0;
+            line-height: 0;
+            display: block;
+            position: relative;
+        }
+
+        .marketing-site .footer-grassy-fade-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 75px;
+            background: linear-gradient(to bottom, #FAF8F2 0%, rgba(250, 248, 242, 0.6) 40%, rgba(250, 248, 242, 0) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marketing-site .footer-grassy-img {
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .marketing-site .footer-section {
+            text-align: center;
+            padding: 30px 20px 40px;
+            color: rgba(48, 79, 104, 0.5);
+            font-size: 13px;
+            width: 100%;
+        }
+
+        /* ===== MOBILE ===== */
+        .marketing-site .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .marketing-site .sidebar {
+                display: none;
+            }
+
+            .marketing-site .mobile-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 20px;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: #f5f5dc;
+            }
+
+            .marketing-site .main-content {
+                margin-left: 0;
+                padding: 10px;
+            }
+
+            .marketing-site .hero-modern-title {
+                font-size: 32px;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .marketing-site .hero-logo-badge {
+                width: 34px;
+                height: 34px;
+                border-radius: 10px;
+                vertical-align: -5px;
+            }
+
+            .marketing-site .hero-video-viewport {
+                height: 220px;
+            }
+
+            .marketing-site .hero-watermark-text {
+                font-size: 36px;
+            }
+
+            .marketing-site .hero-watermark-logo {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+            }
+
+            .marketing-site .hero-play-button {
+                width: 56px;
+                height: 56px;
+            }
+
+            .marketing-site .story-text, .marketing-site .fragment-row .text, .marketing-site .built-row .text {
+                font-size: 18px;
+            }
+
+            .marketing-site .frag-letter {
+                width: 26px;
+                height: 26px;
+                font-size: 11px;
+                border-radius: 6px;
+            }
+
+            .marketing-site .content-card {
+                border-radius: 20px;
+                padding: 40px 0;
+            }
+
+            .marketing-site .pricing-outer-frame {
+                padding: 24px 16px;
+                border-radius: 24px;
+            }
+
+            .marketing-site .kree-pricing-card {
+                grid-template-columns: 1fr;
+                padding: 26px 20px;
+                gap: 26px;
+            }
+
+            .marketing-site .kree-btn-group {
+                flex-direction: column;
+            }
+        }
+
+        .marketing-site .hero-play-button.is-pressed { transform: translate(-50%, -50%) scale(0.92); }
+
+.marketing-site .account-menu { position: relative; z-index: 300; }
+.marketing-site .account-menu-trigger { appearance: none; padding: 0; border: 0; color: inherit; background: transparent; font: inherit; }
+.marketing-site .account-menu-panel { position: absolute; top: calc(100% + 8px); right: 0; z-index: 300; display: grid; width: min(240px, calc(100vw - 32px)); gap: 3px; padding: 8px; border: 1px solid #D6DCE1; border-radius: 16px; background: #FAF8F2; box-shadow: 0 14px 36px rgba(35, 55, 75, 0.16); }
+.marketing-site .account-menu-heading { display: grid; gap: 3px; min-width: 0; padding: 9px 12px 11px; border-bottom: 1px solid #D6DCE1; color: #304F67; }
+.marketing-site .account-menu-heading strong { font-size: 13px; font-weight: 700; }
+.marketing-site .account-menu-heading span { overflow: hidden; color: #718697; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.marketing-site .account-menu-action { display: flex; align-items: center; min-height: 40px; padding: 9px 12px; border: 0; border-radius: 999px; color: #456176; background: transparent; font: 500 14px/1.3 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; text-align: left; text-decoration: none; cursor: pointer; }
+.marketing-site .account-menu-action:hover, .marketing-site .account-menu-action:focus-visible { color: #304F67; background: #ffffff; }
+.marketing-site .account-menu-action--button { width: 100%; }
+.marketing-site .account-menu-action:disabled { cursor: wait; opacity: 0.7; }
+.marketing-site .account-menu-error { margin: 2px 8px 6px; color: #a33b30; font-size: 12px; line-height: 1.4; }
+    
