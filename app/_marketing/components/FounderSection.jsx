@@ -139,10 +139,6 @@ export function SiteFooter() {
       {" "}
       <div style={{"display":"flex","gap":"16px","justifyContent":"center","marginTop":"12px"}}>
         {" "}
-        <a href="https://www.twitter.com/nikhilnectar" style={{"color":"#456176","textDecoration":"none"}}>
-          {"Twitter"}
-        </a>
-        {" "}
         <a href="https://www.instagram.com/8bitbrains" style={{"color":"#456176","textDecoration":"none"}}>
           {"Instagram"}
         </a>
