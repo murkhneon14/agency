@@ -1,6 +1,7 @@
 import { requireRole } from "../../../lib/auth/guards.js";
 import { jsonError, readJson, roleErrorResponse } from "../../../lib/http/responses.js";
 import { projectRequestSchema } from "../../../lib/validations/schemas.js";
+import { notifyAdminsByEmail } from "../../../lib/email/notifications.js";
 
 export const dynamic = "force-dynamic";
 
@@ -35,5 +36,21 @@ export async function POST(request) {
   await context.db.from("audit_logs").insert({ actor_id: context.user.id, action: "project_request.created", entity_type: "project_request", entity_id: data.id });
   const { data: admins } = await context.db.from("profiles").select("id").eq("role", "ADMIN");
   if (admins?.length) await context.db.from("notifications").insert(admins.map((admin) => ({ profile_id: admin.id, event_type: "project_request.created", title: "New project request", body: `${submission.service} request received.`, href: "/admin/requests" })));
+  await notifyAdminsByEmail(context.db, {
+    subject: `New project request: ${submission.service}`,
+    title: "New project request received",
+    body: `${submission.name} submitted a project request for ${submission.service}.`,
+    details: [
+      { label: "Client", value: submission.name },
+      { label: "Email", value: context.user.email },
+      { label: "Company", value: submission.company || "Not provided" },
+      { label: "Service", value: submission.service },
+      { label: "Budget", value: submission.budget },
+      { label: "Timeline", value: submission.timeline },
+      { label: "Description", value: submission.description },
+    ],
+    href: "/admin/requests",
+    actionLabel: "Review project request",
+  });
   return Response.json({ request: data }, { status: 201, headers: { "Cache-Control": "private, no-store" } });
 }

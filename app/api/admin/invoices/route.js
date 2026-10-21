@@ -1,6 +1,8 @@
 import { requireRole } from "../../../../lib/auth/guards.js";
 import { jsonError, readJson, roleErrorResponse } from "../../../../lib/http/responses.js";
 import { invoiceCreateSchema } from "../../../../lib/validations/schemas.js";
+import { formatINRFromPaise } from "../../../../lib/domain/finance.js";
+import { notifyClientByEmail } from "../../../../lib/email/notifications.js";
 
 export const dynamic = "force-dynamic";
 
@@ -17,5 +19,18 @@ export async function POST(request) {
     p_milestone_ids: parsed.data.milestoneIds,
   });
   if (error) return jsonError(error.message.includes("No unbilled") ? "There is no unbilled milestone balance for this project." : "Unable to create the invoice.", 409, "invoice_error");
+  const { data: invoice } = await context.db.from("invoices").select("client_id,invoice_number,total_paise,due_date").eq("id", invoiceId).maybeSingle();
+  if (invoice) await notifyClientByEmail(context.db, invoice.client_id, {
+    subject: `New invoice: ${invoice.invoice_number}`,
+    title: "A new invoice is available",
+    body: `Invoice ${invoice.invoice_number} is ready in your client portal.`,
+    details: [
+      { label: "Invoice", value: invoice.invoice_number },
+      { label: "Total", value: formatINRFromPaise(Number(invoice.total_paise)) },
+      { label: "Due date", value: invoice.due_date || "Not set" },
+    ],
+    href: "/dashboard/invoices",
+    actionLabel: "View invoice",
+  });
   return Response.json({ invoiceId, href: `/api/invoices/${invoiceId}/pdf` }, { status: 201, headers: { "Cache-Control": "private, no-store" } });
 }

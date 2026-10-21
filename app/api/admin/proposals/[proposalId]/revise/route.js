@@ -1,6 +1,8 @@
 import { requireRole } from "../../../../../../lib/auth/guards.js";
 import { jsonError, readJson, roleErrorResponse } from "../../../../../../lib/http/responses.js";
 import { proposalRevisionSchema } from "../../../../../../lib/validations/schemas.js";
+import { formatINRFromPaise } from "../../../../../../lib/domain/finance.js";
+import { notifyClientByEmail } from "../../../../../../lib/email/notifications.js";
 
 export const dynamic = "force-dynamic";
 
@@ -23,5 +25,19 @@ export async function POST(request, { params }) {
     p_milestones: values.milestones.map((item)=>({...item,dueDate:item.dueDate||null})),
   });
   if (error) return jsonError("Unable to revise this proposal. Accepted or closed proposals cannot be edited.", 409, "proposal_closed");
+  const { data: proposal } = await context.db.from("proposals").select("client_id").eq("id", proposalId).maybeSingle();
+  if (proposal) await notifyClientByEmail(context.db, proposal.client_id, {
+    subject: `Proposal updated: ${values.title}`,
+    title: "A proposal was updated",
+    body: "The project scope, milestones, or price has changed. Review the latest version in your client portal.",
+    details: [
+      { label: "Proposal", value: values.title },
+      { label: "Version", value: version },
+      { label: "Total", value: formatINRFromPaise(totalPricePaise) },
+      { label: "Milestones", value: values.milestones.length },
+    ],
+    href: "/dashboard/proposals",
+    actionLabel: "Review updated proposal",
+  });
   return Response.json({ proposalId, version }, { headers: { "Cache-Control": "private, no-store" } });
 }

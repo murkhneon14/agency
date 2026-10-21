@@ -1,5 +1,6 @@
 import { requireRole } from "../../../../../../lib/auth/guards.js";
 import { jsonError, readJson, roleErrorResponse } from "../../../../../../lib/http/responses.js";
+import { notifyClientByEmail } from "../../../../../../lib/email/notifications.js";
 import { z } from "zod";
 
 export const dynamic = "force-dynamic";
@@ -12,11 +13,21 @@ export async function POST(request, { params }) {
   const { projectId } = await params;
   const parsed = updateSchema.safeParse(await readJson(request));
   if (!parsed.success) return jsonError("Enter an update title and message.", 422, "validation_error");
-  const { data: project } = await context.db.from("projects").select("id,client_id").eq("id", projectId).maybeSingle();
+  const { data: project } = await context.db.from("projects").select("id,client_id,name").eq("id", projectId).maybeSingle();
   if (!project) return jsonError("Project not found.", 404, "not_found");
   const { data, error } = await context.db.from("project_updates").insert({ project_id: projectId, author_id: context.user.id, ...parsed.data }).select("id,title,body,visibility,created_at").single();
   if (error) return jsonError("Unable to save the project update.", 500, "database_error");
   await context.db.from("audit_logs").insert({ actor_id: context.user.id, action: "project_update.created", entity_type: "project_update", entity_id: data.id, metadata: { visibility: data.visibility } });
-  if (data.visibility === "client") await context.db.from("notifications").insert({ profile_id: project.client_id, project_id: projectId, event_type: "project.updated", title: data.title, body: "A new update is available for your project.", href: `/dashboard/projects/${projectId}` });
+  if (data.visibility === "client") {
+    await context.db.from("notifications").insert({ profile_id: project.client_id, project_id: projectId, event_type: "project.updated", title: data.title, body: "A new update is available for your project.", href: `/dashboard/projects/${projectId}` });
+    await notifyClientByEmail(context.db, project.client_id, {
+      subject: `Project update: ${project.name}`,
+      title: data.title,
+      body: data.body,
+      details: [{ label: "Project", value: project.name }],
+      href: `/dashboard/projects/${projectId}`,
+      actionLabel: "View project update",
+    });
+  }
   return Response.json({ update: data }, { status: 201, headers: { "Cache-Control": "private, no-store" } });
 }
